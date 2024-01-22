@@ -62,6 +62,15 @@ https://trello.com/b/jhJTqQtB/neurolingua
 <img width="7375" alt="Untitled (2)" src="https://github.com/AdeShennaike/NeuroLingua-frontend/assets/1472318/8e466c75-f12b-44bf-a28f-25d33246a9d2">
 
 
+## Repos
+
+Backend
+https://github.com/AdeShennaike/NeuroLingua-backendConnect
+
+Frontend
+https://github.com/AdeShennaike/NeuroLingua-frontendConnect
+
+
 ## Technologies Used
 
 - HTML5
