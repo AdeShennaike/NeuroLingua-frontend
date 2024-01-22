@@ -21,13 +21,11 @@ Take control of your learning experience by enjoying the flexibility to delete q
 ## ERD
 
 # User
-
 - **email:** String
 - **password:** String
 - **profile:** Profile
 
 # Profile
-
 - **quizLanguage:** String
 - **quizzes:** [Quiz]
 - **userLanguage:** String
@@ -36,7 +34,6 @@ Take control of your learning experience by enjoying the flexibility to delete q
 - **Drama:** String
 
 # Quiz
-
 - **question:** String
 - **answer:** String
 - **wrongAnswers:** [String]
@@ -45,15 +42,15 @@ Take control of your learning experience by enjoying the flexibility to delete q
 - **formality:** String
 - **drama:** String
 
-# Report
+# Feedback
 
 - **quiz:** Quiz
 - **message:** String
-
+- **good**: Bool
 
 ## Wire Frame
 
-![image]()
+<img width="2900" alt="Untitled" src="https://github.com/AdeShennaike/NeuroLingua-frontend/assets/1472318/e40b5869-8abb-4d7b-a8ed-7c0738c79f63">
 
 ## Trello Board
 
@@ -64,7 +61,7 @@ https://trello.com/b/jhJTqQtB/neurolingua
 
 #### MVP Goals
 
-- As a user, I want to quiz myself on various languages.
+- As a user, I want to quiz myself in various languages.
 - As a user, I want to view past quiz results.
 - As a user, I want to view individual quiz results.
 - As a user, I want to be able to login to see my profile.
@@ -75,7 +72,6 @@ https://trello.com/b/jhJTqQtB/neurolingua
 
 - As a user, I want to translate articles in the langauge i am practcing. 
 - As a user, I want to view my progress tracker.
-
 
 ## Technologies Used
 
@@ -90,22 +86,17 @@ https://trello.com/b/jhJTqQtB/neurolingua
 - Dotenv
 - ChatGPT
 
-## API Endpoints
+## Routes
 
-- **Get All Quiz Results**
-  - Endpoint: `/users/quizresults`
-
-- **Get Specific Quiz Result**
-  - Endpoint: `/users/quiz/:id`
-
-- **Get New Quiz**
-  - Endpoint: `/newquiz`
-
-- **Add Completed Quiz**
-  - Endpoint: `/users/quizresults`
-
-- **Change Main Language**
-  - Endpoint: `UPDATE /users/language`
-
-- **Delete Quiz Result by ID**
-  - Endpoint: `/users/quizresults/:id`
+| Description               | Method  | Endpoint         | Mongoose Operation         |
+|---------------------------|---------|------------------|----------------------------|
+| View Quiz History         | GET     | /quizzes         | `findMany(Profile)`        |
+| View Quiz (in history)    | GET     | /quiz/:id        | `findOne(Quiz)`            |
+| New Quiz                  | GET     | /quiz            | `createOne(Quiz)`          |
+| Answer Quiz               | PUT     | /quiz            | `updateOne(Profile)`       |
+| Delete Quiz (from history)| DELETE  | /quiz/:id        | `findOneAndDelete(id)`     |
+| Report Quiz               | POST    | /report          | `createOne(Report)`        |
+| View User Profile         | GET     | /profile         | `findOne(Profile)`         |
+| Update User Profile       | PUT     | /profile         | `updateOne(Profile)`       |
+| Login                     | POST    | /login           | `findOne(User)`            |
+| Sign up                   | POST    | /signup          | `createOne(User)`          |
