@@ -35,18 +35,18 @@ Stay motivated and effortlessly monitor your progress. Neuro Lingua keeps a reco
 
 ## Routes
 
-| Description               | Method  | Endpoint         | Mongoose Operation         |
-|---------------------------|---------|------------------|----------------------------|
-| View Quiz History         | GET     | /quizzes         | `findMany(Profile)`        |
-| View Quiz (in history)    | GET     | /quiz/:id        | `findOne(Quiz)`            |
-| New Quiz                  | GET     | /quiz            | `createOne(Quiz)`          |
-| Answer Quiz               | PUT     | /quiz            | `updateOne(Profile)`       |
-| Delete Quiz (from history)| DELETE  | /quiz/:id        | `findOneAndDelete(id)`     |
-| Report Quiz               | POST    | /report          | `createOne(Report)`        |
-| View User Profile         | GET     | /profile         | `findOne(Profile)`         |
-| Update User Profile       | PUT     | /profile         | `updateOne(Profile)`       |
-| Login                     | POST    | /login           | `findOne(User)`            |
-| Sign up                   | POST    | /signup          | `createOne(User)`          |
+| Description               | Method  | Endpoint         | Controller function                   | Mongoose Operation         |
+|---------------------------|---------|------------------|---------------------------------------|----------------------------|
+| View Quiz History         | GET     | /quizzes         | viewQuizHistory()                     | `findMany(Profile)`        |
+| View Quiz (in history)    | GET     | /quiz/:id        | viewQuizDetails(quizId)               | `findOne(Quiz)`            |
+| New Quiz                  | GET     | /quiz            | newQuiz()                             | `createOne(Quiz)`          |
+| Answer Quiz               | PUT     | /quiz            | answerQuiz(userId, quizId)            | `updateOne(Profile)`       |
+| Delete Quiz (from history)| DELETE  | /quiz/:id        | removeQuizFromHistory(userId, quizId) | `findOneAndDelete(id)`     |
+| Report Quiz               | POST    | /report          | provideFeedback(userId, quizId)       | `createOne(Report)`        |
+| View User Profile         | GET     | /profile         | viewPreferences()                     | `findOne(Profile)`         |
+| Update User Profile       | PUT     | /profile         | updatePreferences(preferences)        | `updateOne(Profile)`       |
+| Login                     | POST    | /login           | login(email, password)                | `findOne(User)`            |
+| Sign up                   | POST    | /signup          | signup(email, password)               | `createOne(User)`          |
 
 ## Trello Board
 
