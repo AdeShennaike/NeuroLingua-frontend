@@ -54,7 +54,7 @@ https://trello.com/b/jhJTqQtB/neurolingua
 
 ## ERD
 
-![erd](https://github.com/AdeShennaike/NeuroLingua-frontend/assets/1472318/fb27ca40-2830-4d3e-9cba-e2200c7f5930)
+![Database ER diagram (crow's foot)](https://github.com/AdeShennaike/NeuroLingua-frontend/assets/1472318/0d1068d8-67be-4935-aac4-448d2b5002a1)
 
 
 ## Component Hierarchy
