@@ -54,33 +54,8 @@ https://trello.com/b/jhJTqQtB/neurolingua
 
 ## ERD
 
-# User
-- **email:** String
-- **password:** String
-- **profile:** Profile
+![erd](https://github.com/AdeShennaike/NeuroLingua-frontend/assets/1472318/fb27ca40-2830-4d3e-9cba-e2200c7f5930)
 
-# Profile
-- **quizLanguage:** String
-- **quizzes:** [Quiz]
-- **userLanguage:** String
-- **difficulty:** String
-- **formality:** String
-- **Drama:** String
-
-# Quiz
-- **question:** String
-- **answer:** String
-- **wrongAnswers:** [String]
-- **language:** String
-- **difficulty:** String
-- **formality:** String
-- **drama:** String
-
-# Feedback
-
-- **quiz:** Quiz
-- **message:** String
-- **good**: Bool
 
 ## Technologies Used
 
