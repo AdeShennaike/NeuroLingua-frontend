@@ -35,18 +35,18 @@ Stay motivated and effortlessly monitor your progress. Neuro Lingua keeps a reco
 
 ## Routes
 
-| Description               | Method  | Endpoint         | Controller function                   | Mongoose Operation         |
-|---------------------------|---------|------------------|---------------------------------------|----------------------------|
-| View Quiz History         | GET     | /quizzes         | viewQuizHistory()                     | `findMany(Profile)`        |
-| View Quiz (in history)    | GET     | /quiz/:id        | viewQuizDetails(quizId)               | `findOne(Quiz)`            |
-| New Quiz                  | GET     | /quiz            | newQuiz()                             | `createOne(Quiz)`          |
-| Answer Quiz               | PUT     | /quiz            | answerQuiz(userId, quizId)            | `updateOne(Profile)`       |
-| Delete Quiz (from history)| DELETE  | /quiz/:id        | removeQuizFromHistory(userId, quizId) | `findOneAndDelete(id)`     |
-| Report Quiz               | POST    | /report          | provideFeedback(userId, quizId)       | `createOne(Report)`        |
-| View User Profile         | GET     | /profile         | viewPreferences()                     | `findOne(Profile)`         |
-| Update User Profile       | PUT     | /profile         | updatePreferences(preferences)        | `updateOne(Profile)`       |
-| Login                     | POST    | /login           | login(email, password)                | `findOne(User)`            |
-| Sign up                   | POST    | /signup          | signup(email, password)               | `createOne(User)`          |
+| Description           | Method  | Endpoint               | CONTROLLER                            | Mongoose Operation         |
+|-----------------------|---------|------------------------|---------------------------------------|----------------------------|
+| View Quiz History     | GET     | /quizzes/history       | getQuizHistory()                      | `findMany()`               |
+| View Quiz             | GET     | /quizzes/:id           | getQuizDetails(quizId)                | `findOne()`                |
+| Get Quiz              | GET     | /quiz                  | getQuiz()                             | `findOne()`                |
+| Answer Quiz           | PUT     | /quizzes/:id/answer    | answerQuiz(quizId)                    | `updateOne()`              |
+| Delete Quiz           | DELETE  | /quizzes/:id/delete    | removeQuizFromHistory(quizId)         | `updateOne()`              |
+| Report Quiz           | POST    | /quizzes/:id/feedback  | provideFeedback(quizId)               | `createOne()`              |
+| View User Profile     | GET     | /profile               | viewPreferences()                     | `findOne()`                |
+| Update User Profile   | PUT     | /profile               | updatePreferences(preferences)        | `updateOne()`              |
+| Login                 | POST    | /login                 | login(email, password)                | `findOne()`                |
+| Sign up               | POST    | /signup                | signup(email, password)               | `createOne()`              |
 
 ## Trello Board
 
