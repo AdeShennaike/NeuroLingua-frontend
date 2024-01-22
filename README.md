@@ -56,8 +56,10 @@ https://trello.com/b/jhJTqQtB/neurolingua
 
 ![erd](https://github.com/AdeShennaike/NeuroLingua-frontend/assets/1472318/fb27ca40-2830-4d3e-9cba-e2200c7f5930)
 
-<img width="8905" alt="Untitled (1)" src="https://github.com/AdeShennaike/NeuroLingua-frontend/assets/1472318/8b4c391d-ef7d-4a53-8043-f6d3070f76c3">
 
+## Component Hierarchy
+
+<img width="7375" alt="Untitled (2)" src="https://github.com/AdeShennaike/NeuroLingua-frontend/assets/1472318/8e466c75-f12b-44bf-a28f-25d33246a9d2">
 
 
 ## Technologies Used
