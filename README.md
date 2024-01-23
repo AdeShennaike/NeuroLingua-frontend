@@ -38,10 +38,10 @@ Stay motivated and effortlessly monitor your progress. Neuro Lingua keeps a reco
 | Description           | Method  | Endpoint               | CONTROLLER                            | Mongoose Operation         |
 |-----------------------|---------|------------------------|---------------------------------------|----------------------------|
 | View Quiz History     | GET     | /quizzes/history       | getQuizHistory()                      | `findMany()`               |
-| View Quiz             | GET     | /quizzes/:id           | getQuizDetails(quizId)                | `findOne()`                |
+| View Quiz             | GET     | /quizzes/details/:id   | getQuizDetails(quizId)                | `findOne()`                |
 | Get Quiz              | GET     | /quiz                  | getQuiz()                             | `findOne()`                |
-| Answer Quiz           | PUT     | /quizzes/:id/answer    | answerQuiz(quizId)                    | `updateOne()`              |
-| Delete Quiz           | DELETE  | /quizzes/:id/delete    | removeQuizFromHistory(quizId)         | `updateOne()`              |
+| Answer Quiz           | PUT     | /quizzes/answer/:id    | answerQuiz(quizId)                    | `updateOne()`              |
+| Delete Quiz           | DELETE  | /quizzes/delete/:id    | removeQuizFromHistory(quizId)         | `updateOne()`              |
 | Report Quiz           | POST    | /quizzes/:id/feedback  | provideFeedback(quizId)               | `createOne()`              |
 | View User Profile     | GET     | /profile               | viewPreferences()                     | `findOne()`                |
 | Update User Profile   | PUT     | /profile               | updatePreferences(preferences)        | `updateOne()`              |
