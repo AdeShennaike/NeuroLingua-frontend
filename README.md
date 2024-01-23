@@ -14,67 +14,72 @@ If you'd like to add some excitement, choose the dramatic setting to make your l
 ### Progress Tracking
 Stay motivated and effortlessly monitor your progress. Neuro Lingua keeps a record of the quizzes you've completed, allowing you to revisit and reinforce your knowledge. The power is in your hands as you navigate through your language learning journey with ease.
 
-### Delete Option
-Take control of your learning experience by enjoying the flexibility to delete quizzes. Tailor your practice sessions with ease, ensuring you focus on what matters most to you.
-
-
-## ERD
-
-# User
-
-- **email:** String
-- **password:** String
-- **profile:** Profile
-
-# Profile
-
-- **quizLanguage:** String
-- **quizzes:** [Quiz]
-- **userLanguage:** String
-- **difficulty:** String
-- **formality:** String
-- **Drama:** String
-
-# Quiz
-
-- **question:** String
-- **answer:** String
-- **wrongAnswers:** [String]
-- **language:** String
-- **difficulty:** String
-- **formality:** String
-- **drama:** String
-
-# Report
-
-- **quiz:** Quiz
-- **message:** String
-
-
-## Wire Frame
-
-![image](public/NL_wireframe.png)
-
-## Trello Board
-
-https://trello.com/b/jhJTqQtB/neurolingua
-
 ## User Stories
-
-
 #### MVP Goals
 
-- As a user, I want to quiz myself on various languages.
+- As a user, I want to quiz myself in various languages.
 - As a user, I want to view past quiz results.
 - As a user, I want to view individual quiz results.
 - As a user, I want to be able to login to see my profile.
-
+- As a user, I want to utilize full CRUD.
 
 
 #### Stretch Goals
 
 - As a user, I want to translate articles in the langauge i am practcing. 
 - As a user, I want to view my progress tracker.
+
+## Wire Frame
+
+<img width="2900" alt="Untitled" src="https://github.com/AdeShennaike/NeuroLingua-frontend/assets/1472318/e40b5869-8abb-4d7b-a8ed-7c0738c79f63">
+
+## Routes
+
+
+![image](public/NL_wireframe.png)
+=======
+| Description           | Method  | Endpoint               | CONTROLLER                            | Mongoose Operation         |
+|-----------------------|---------|------------------------|---------------------------------------|----------------------------|
+| View Quiz History     | GET     | /quizzes/history       | getQuizHistory()                      | `findMany()`               |
+| View Quiz             | GET     | /quizzes/details/:id   | getQuizDetails(quizId)                | `findOne()`                |
+| Get Quiz              | GET     | /quiz                  | getQuiz()                             | `findOne()`                |
+| Answer Quiz           | PUT     | /quizzes/answer/:id    | answerQuiz(quizId)                    | `updateOne()`              |
+| Delete Quiz           | DELETE  | /quizzes/delete/:id    | removeQuizFromHistory(quizId)         | `updateOne()`              |
+| Report Quiz           | POST    | /quizzes/feedback/:id  | provideFeedback(quizId)               | `createOne()`              |
+| View User Profile     | GET     | /profile               | viewPreferences()                     | `findOne()`                |
+| Update User Profile   | PUT     | /profile               | updatePreferences(preferences)        | `updateOne()`              |
+| Login                 | POST    | /login                 | login(email, password)                | `findOne()`                |
+| Sign up               | POST    | /signup                | signup(email, password)               | `createOne()`              |
+
+
+## Trello Board
+
+https://trello.com/b/jhJTqQtB/neurolingua
+
+## ERD
+
+![Database ER diagram (crow's foot)](https://github.com/AdeShennaike/NeuroLingua-frontend/assets/1472318/0d1068d8-67be-4935-aac4-448d2b5002a1)
+
+
+
+- As a user, I want to quiz myself on various languages.
+- As a user, I want to view past quiz results.
+- As a user, I want to view individual quiz results.
+- As a user, I want to be able to login to see my profile.
+
+## Component Hierarchy
+
+
+<img width="7375" alt="Untitled (2)" src="https://github.com/AdeShennaike/NeuroLingua-frontend/assets/1472318/8e466c75-f12b-44bf-a28f-25d33246a9d2">
+
+
+## Repos
+
+Backend
+https://github.com/AdeShennaike/NeuroLingua-backendConnect
+
+Frontend
+https://github.com/AdeShennaike/NeuroLingua-frontendConnect
 
 
 ## Technologies Used
@@ -89,4 +94,3 @@ https://trello.com/b/jhJTqQtB/neurolingua
 - Mongoose
 - Dotenv
 - ChatGPT
-
