@@ -42,7 +42,7 @@ Stay motivated and effortlessly monitor your progress. Neuro Lingua keeps a reco
 | Get Quiz              | GET     | /quiz                  | getQuiz()                             | `findOne()`                |
 | Answer Quiz           | PUT     | /quizzes/answer/:id    | answerQuiz(quizId)                    | `updateOne()`              |
 | Delete Quiz           | DELETE  | /quizzes/delete/:id    | removeQuizFromHistory(quizId)         | `updateOne()`              |
-| Report Quiz           | POST    | /quizzes/:id/feedback  | provideFeedback(quizId)               | `createOne()`              |
+| Report Quiz           | POST    | /quizzes/feedback/:id  | provideFeedback(quizId)               | `createOne()`              |
 | View User Profile     | GET     | /profile               | viewPreferences()                     | `findOne()`                |
 | Update User Profile   | PUT     | /profile               | updatePreferences(preferences)        | `updateOne()`              |
 | Login                 | POST    | /login                 | login(email, password)                | `findOne()`                |
