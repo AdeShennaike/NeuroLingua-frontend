@@ -25,6 +25,7 @@ const App = () => {
 
   return (
     <>
+    <div className="bg-green-500 text-9xl italic -tracking-wide">test</div>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
@@ -45,6 +46,9 @@ const App = () => {
           }
         />
       </Routes>
+      <div>
+        {/*<Quiz />*/}
+      </div>
     </>
   )
 }
