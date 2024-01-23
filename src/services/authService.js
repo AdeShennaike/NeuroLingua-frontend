@@ -1,6 +1,7 @@
 //import tokenservice
 import * as tokenService from './tokenService'
 //set the base url to the env variable
+console.log(process.env.REACT_APP_BACK_END_SERVER_URL)
 const BASE_URL = `${process.env.REACT_APP_BACK_END_SERVER_URL}/api/auth`
 // retrive user data from token 
 function getUser() {
