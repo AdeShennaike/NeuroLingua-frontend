@@ -53,7 +53,7 @@ Take control of your learning experience by enjoying the flexibility to delete q
 
 ## Wire Frame
 
-![image]()
+![image](public/NL_wireframe.png)
 
 ## Trello Board
 
@@ -68,7 +68,7 @@ https://trello.com/b/jhJTqQtB/neurolingua
 - As a user, I want to view past quiz results.
 - As a user, I want to view individual quiz results.
 - As a user, I want to be able to login to see my profile.
-- As a user, I want to utilize full CRUD.
+
 
 
 #### Stretch Goals
@@ -90,22 +90,3 @@ https://trello.com/b/jhJTqQtB/neurolingua
 - Dotenv
 - ChatGPT
 
-## API Endpoints
-
-- **Get All Quiz Results**
-  - Endpoint: `/users/quizresults`
-
-- **Get Specific Quiz Result**
-  - Endpoint: `/users/quiz/:id`
-
-- **Get New Quiz**
-  - Endpoint: `/newquiz`
-
-- **Add Completed Quiz**
-  - Endpoint: `/users/quizresults`
-
-- **Change Main Language**
-  - Endpoint: `UPDATE /users/language`
-
-- **Delete Quiz Result by ID**
-  - Endpoint: `/users/quizresults/:id`
