@@ -35,6 +35,9 @@ Stay motivated and effortlessly monitor your progress. Neuro Lingua keeps a reco
 
 ## Routes
 
+
+![image](public/NL_wireframe.png)
+=======
 | Description           | Method  | Endpoint               | CONTROLLER                            | Mongoose Operation         |
 |-----------------------|---------|------------------------|---------------------------------------|----------------------------|
 | View Quiz History     | GET     | /quizzes/history       | getQuizHistory()                      | `findMany()`               |
@@ -48,6 +51,7 @@ Stay motivated and effortlessly monitor your progress. Neuro Lingua keeps a reco
 | Login                 | POST    | /login                 | login(email, password)                | `findOne()`                |
 | Sign up               | POST    | /signup                | signup(email, password)               | `createOne()`              |
 
+
 ## Trello Board
 
 https://trello.com/b/jhJTqQtB/neurolingua
@@ -57,7 +61,14 @@ https://trello.com/b/jhJTqQtB/neurolingua
 ![Database ER diagram (crow's foot)](https://github.com/AdeShennaike/NeuroLingua-frontend/assets/1472318/0d1068d8-67be-4935-aac4-448d2b5002a1)
 
 
+
+- As a user, I want to quiz myself on various languages.
+- As a user, I want to view past quiz results.
+- As a user, I want to view individual quiz results.
+- As a user, I want to be able to login to see my profile.
+
 ## Component Hierarchy
+
 
 <img width="7375" alt="Untitled (2)" src="https://github.com/AdeShennaike/NeuroLingua-frontend/assets/1472318/8e466c75-f12b-44bf-a28f-25d33246a9d2">
 
