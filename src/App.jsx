@@ -6,6 +6,7 @@ import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
+import Quiz from './components/Quiz/Quiz'
 
 import * as authService from './services/authService'
 
@@ -45,6 +46,9 @@ const App = () => {
           }
         />
       </Routes>
+      <div>
+        <Quiz />
+      </div>
     </>
   )
 }
