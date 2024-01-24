@@ -21,7 +21,7 @@ const LoginForm = props => {
     try {
       await authService.login(formData)
       props.handleSignupOrLogin()
-      navigate('/')
+      navigate('/quiz')
     } catch (err) {
       props.updateMessage(err.message)
     }
@@ -55,14 +55,20 @@ const LoginForm = props => {
           onChange={handleChange}
         />
       </div>
-      <div>
-        <button className={styles.button}>Log In</button>
-        <Link to="/">
-          <button>Cancel</button>
-        </Link>
-        <Link to="/signup">
-          <button>Sign Up</button>
-        </Link>
+      <div className="mt-4 flex gap-4">
+        <button>
+           Log In
+        </button>
+      <Link to="/">
+        <button>
+           Cancel
+        </button>
+      </Link>
+      <Link to="/signup">
+        <button>
+           Sign Up
+        </button>
+       </Link>
       </div>
     </form>
   )
