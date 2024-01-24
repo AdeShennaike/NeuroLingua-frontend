@@ -29,12 +29,12 @@ const Quiz = () => {
     <>
       <div>Quiz</div>
       <div>
-        <p>{quizData.question}</p>
+        <p>{quizData.prompt}</p>
         <button onClick={() => handleAnswerClick(quizData.answer)}>
           {quizData.answer}
         </button>
         {/* Map over alternative answers and display each as a button */}
-        {quizData.alternateAnswers.map((altAnswer, index) => (
+        {quizData.wrongAnswers.map((altAnswer, index) => (
           <button key={index} onClick={() => handleAnswerClick(altAnswer)}>
             {altAnswer}
           </button>
