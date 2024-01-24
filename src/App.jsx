@@ -6,7 +6,7 @@ import NavBar from './components/NavBar/NavBar';
 import Signup from './pages/Signup/Signup';
 import Login from './pages/Login/Login';
 import Landing from './pages/Landing/Landing';
-import Profile from './pages/Profiles/Profiles'; // Ensure correct import for Profile component
+import Profile from './pages/Profile/Profile'; // Ensure correct import for Profile component
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import Quiz from './components/Quiz/Quiz';
 import History from './components/History/History';
