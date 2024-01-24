@@ -16,7 +16,7 @@ const NavBar = ({ user, handleLogout }) => {
       :
         <nav>
           <ul>
-         
+
           </ul>
         </nav>
       }

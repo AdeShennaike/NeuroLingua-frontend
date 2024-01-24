@@ -10,6 +10,7 @@ const Quiz = () => {
   useEffect(() => {
     const fetchQuiz = async () => {
       const quiz = await quizService.getQuiz();
+      console.log(quiz)
       setQuizData(quiz); // Set fetched quiz data into state
     };
     fetchQuiz();
