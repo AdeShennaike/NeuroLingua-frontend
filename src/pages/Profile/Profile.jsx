@@ -14,7 +14,7 @@ const Profile = () => {
 
   return (
     <>
-      <h1></h1>
+      <h1>username placeholder</h1>
       {profile.length ? 
         <>
           {profile.map(profile=>
