@@ -9,7 +9,7 @@ import Landing from './pages/Landing/Landing';
 import Profile from './pages/Profile/Profile'; // Ensure correct import for Profile component
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import Quiz from './components/Quiz/Quiz';
-import History from './components/History/History';
+
 
 
 import * as authService from './services/authService';
@@ -51,16 +51,18 @@ const App = () => {
       {/* Routes definition for navigation */}
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
-        {user ? (
+        {user ? 
           // If user is logged in, don't render the login route
           <>
-            <Route path="/signup" element={<Signup handleSignupOrLogin={handleSignupOrLogin} />} />
-            <Route path="/login" element={<Navigate to="/quiz" />} />
+            <Route path="/login" element={<Navigate to="/" />} />
           </>
-        ) : (
+         : 
+          <>
           // If user is not logged in, render the login route
           <Route path="/login" element={<Login handleSignupOrLogin={handleSignupOrLogin} />} />
-        )}
+          <Route path="/signup" element={<Signup handleSignupOrLogin={handleSignupOrLogin} />} />
+          </>
+        }
         <Route
           path="/profile"
           element={
@@ -70,10 +72,7 @@ const App = () => {
             </ProtectedRoute>
           }
         />
-        <Route
-          path="/history"
-          element={<History />}
-        />
+        
         <Route
           path="/quiz"
           element={<Quiz />}

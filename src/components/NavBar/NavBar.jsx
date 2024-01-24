@@ -27,10 +27,14 @@ const NavBar = ({ user, handleLogout, handleSignupOrLogin }) => {
             </button>
           </>
         ) : (
-          <button onClick={ handleLoginClick} className="hover:text-gray-300">
-          
-        </button>
-        
+          <div>
+          <Link to="/login" className="hover:text-gray-300">
+              Log in
+            </Link>
+          <Link to="/signup" className="hover:text-gray-300">
+             Sign up
+           </Link>
+           </div>
         )}
       </nav>
     </footer>
