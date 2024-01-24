@@ -4,13 +4,17 @@ import * as quizService from "../../services/quizService";
 
 const Quiz = () => {
   // State to hold quiz data
-  const [quizData, setQuizData] = useState({alternativeTranslations: []});
+  const [quizData, setQuizData] = useState({
+    alternateAnswers: [],
+    answer: "",
+    question: ""
+  });
 
   // Effect to fetch quiz data on component mount
   useEffect(() => {
     const fetchQuiz = async () => {
       const quiz = await quizService.getQuiz();
-      console.log(quiz)
+      console.log()
       setQuizData(quiz); // Set fetched quiz data into state
     };
     fetchQuiz();
@@ -18,13 +22,24 @@ const Quiz = () => {
 
   // Conditional rendering based on fetched data
   if (!quizData) return <div>Loading quiz...</div>; // Loading state
-
+  const handleAnswerClick = (answer) => {
+    console.log("Selected answer:", answer);
+  }
   return (
     <>
       <div>Quiz</div>
       <div>
-        <p>{quizData.prompt}</p>
-      {/* 
+        <p>{quizData.question}</p>
+        <button onClick={() => handleAnswerClick(quizData.answer)}>
+          {quizData.answer}
+        </button>
+        {/* Map over alternative answers and display each as a button */}
+        {quizData.alternateAnswers.map((altAnswer, index) => (
+          <button key={index} onClick={() => handleAnswerClick(altAnswer)}>
+            {altAnswer}
+          </button>
+        ))}
+        {/* 
   <ul>
     {quizData.alternativeTranslations.map((translation, index) => (
       <li key={index}>{translation}</li>
