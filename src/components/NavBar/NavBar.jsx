@@ -19,18 +19,22 @@ const NavBar = ({ user, handleLogout, handleSignupOrLogin }) => {
             <Link to="/history" className="hover:text-gray-300">
               History
             </Link>
-            <Link to="/profiles" className="hover:text-gray-300">
-              Profiles
+            <Link to="/profile" className="hover:text-gray-300">
+              Profile
             </Link>
             <button onClick={handleLogout} className="hover:text-gray-300">
               Logout
             </button>
           </>
         ) : (
-          <button onClick={ handleLoginClick} className="hover:text-gray-300">
-          
-        </button>
-        
+          <div>
+          <Link to="/login" className="hover:text-gray-300">
+              Log in
+            </Link>
+          <Link to="/signup" className="hover:text-gray-300">
+             Sign up
+           </Link>
+           </div>
         )}
       </nav>
     </footer>

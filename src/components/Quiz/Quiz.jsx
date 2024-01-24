@@ -21,7 +21,7 @@ const Quiz = () => {
   }, []); // Empty dependency array means this effect runs once on mount
 
   // Conditional rendering based on fetched data
-  if (!quizData) return <div>Loading quiz...</div>; // Loading state
+  if (!quizData || !quizData.wrongAnswers) return <div>Loading quiz...</div>; // Loading state
   const handleAnswerClick = (answer) => {
     console.log("Selected answer:", answer);
   }
