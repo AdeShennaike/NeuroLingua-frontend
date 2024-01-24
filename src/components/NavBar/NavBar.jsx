@@ -19,8 +19,8 @@ const NavBar = ({ user, handleLogout, handleSignupOrLogin }) => {
             <Link to="/history" className="hover:text-gray-300">
               History
             </Link>
-            <Link to="/profiles" className="hover:text-gray-300">
-              Profiles
+            <Link to="/profile" className="hover:text-gray-300">
+              Profile
             </Link>
             <button onClick={handleLogout} className="hover:text-gray-300">
               Logout

@@ -14,7 +14,7 @@ const Profile = () => {
 
   return (
     <>
-      <h1></h1>
+      <h1>Profile</h1>
       {profile.length ? 
         <>
           {profile.map(profile=>

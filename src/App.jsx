@@ -9,6 +9,7 @@ import Landing from './pages/Landing/Landing';
 import Profile from './pages/Profile/Profile'; // Ensure correct import for Profile component
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import Quiz from './components/Quiz/Quiz';
+import History from './pages/History/History';
 
 
 
@@ -72,8 +73,11 @@ const App = () => {
             </ProtectedRoute>
           }
         />
-        
-        <Route
+         <Route
+          path="/history"
+          element={<History />}
+        />
+         <Route
           path="/quiz"
           element={<Quiz />}
         />
