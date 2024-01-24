@@ -1,3 +1,4 @@
+
 // Import statements for required hooks, components, and services.
 import { useState, useEffect } from 'react';
 import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
@@ -9,6 +10,7 @@ import Profile from './pages/Profiles/Profiles'; // Ensure correct import for Pr
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import Quiz from './components/Quiz/Quiz';
 import History from './components/History/History';
+
 
 import * as authService from './services/authService';
 
@@ -42,6 +44,7 @@ const App = () => {
 
   return (
     <>
+
       {/* NavBar component, passing user and handleLogout as props */}
       <NavBar user={user} handleLogout={handleLogout} handleSignupOrLogin={handleSignupOrLogin} />
 
