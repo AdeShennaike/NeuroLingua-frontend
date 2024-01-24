@@ -4,7 +4,7 @@ import NavBar from './components/NavBar/NavBar'
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
-import Profiles from './pages/Profiles/Profiles'
+import Profile from './pages/Profile/Profile'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 import Quiz from './components/Quiz/Quiz'
 
@@ -26,6 +26,7 @@ const App = () => {
 
   return (
     <>
+    
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
@@ -38,10 +39,10 @@ const App = () => {
           element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
         />
         <Route 
-          path="/profiles"
+          path="/profile"
           element={
           <ProtectedRoute user={user}>
-            <Profiles />
+            <Profile />
           </ProtectedRoute>
           }
         />
