@@ -22,4 +22,26 @@ async function getQuiz() {
     }
 }
 
-export {getQuiz }
+async function getHistory() {
+
+     try {
+        const token = localStorage.getItem('token')
+        const res = await fetch(`${BASE_URL}/history`, {
+            method: 'GET',
+            headers: {
+                 'Content-Type': 'application/json',
+                 'Authorization': `Bearer ${token}`
+                 }
+        });
+
+        // Handle the response here (e.g., convert to JSON or check status)
+        const history = await res.json();
+        console.log(history);
+        return history;
+    } catch (error) {
+        console.error('Error fetching quiz history:', error);
+    }
+    
+
+}
+export {getQuiz, getHistory }
