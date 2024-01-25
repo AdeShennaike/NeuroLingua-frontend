@@ -7,24 +7,32 @@ const Feedback = ({ isOpen, onClose, onSubmit }) => {
   if (!isOpen) return null;
 
   return (
-    <div style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', backgroundColor: 'white', padding: '20px', zIndex: 100 }}>
-      <h2>Feedback</h2>
+    <div className="fixed inset-0 bg-blue-100 bg-opacity-50 flex items-center justify-center p-4">
+    <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg">
+      <h2 className="text-xl font-semibold mb-4">Feedback</h2>
       <form onSubmit={(e) => {
         e.preventDefault();
         onSubmit({ message, good });
       }}>
-        <div>
-          <label>Message:</label>
-          <textarea value={message} onChange={(e) => setMessage(e.target.value)} />
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2">Message:</label>
+          <textarea className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value={message} onChange={(e) => setMessage(e.target.value)} />
         </div>
-        <div>
-          <label>Good:</label>
-          <input type="checkbox" checked={good} onChange={(e) => setGood(e.target.checked)} />
+        <div className="mb-4 flex items-center">
+          <label className="block text-gray-700 text-sm font-bold mr-2">Good:</label>
+          <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600" checked={good} onChange={(e) => setGood(e.target.checked)} />
         </div>
-        <button type="submit">Submit</button>
-        <button type="button" onClick={onClose}>Close</button>
+        <div className="flex justify-between">
+          <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+            Submit
+          </button>
+          <button type="button" onClick={onClose} className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+            Close
+          </button>
+        </div>
       </form>
     </div>
+  </div>
   );
 };
 
