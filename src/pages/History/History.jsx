@@ -15,7 +15,11 @@ const [history, setHistory] = useState(null)
 
 
   return (
+    <>
     <div>History</div>
+    <p>{history}</p>
+    </>
+    
   )
 }
 
