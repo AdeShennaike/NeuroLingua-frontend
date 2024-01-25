@@ -38,9 +38,9 @@ const Profile = () => {
           </select></div>
           <div><strong>Tone:</strong> {profile.tone}</div>
           <div><strong>Difficulty:</strong> <select value={profile.difficulty} onChange={(e) => handleChange(e, 'difficulty')}>
-            <option value="Easy">Easy</option>
-            <option value="Medium">Medium</option>
-            <option value="Hard">Hard</option>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
           </select></div>
           <div><strong>Drama:</strong> {profile.drama}</div>
           <div><strong>Formality:</strong> {profile.formality}</div>
