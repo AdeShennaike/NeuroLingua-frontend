@@ -5,10 +5,11 @@ import * as quizService from "../../services/quizService";
 const Quiz = () => {
   // State to hold quiz data
   const [quizData, setQuizData] = useState({
-    alternateAnswers: [],
+    wrongAnswers: [],
     answer: "",
     question: ""
   });
+  const [isFeedbackOpen, setIsFeedbackOpen] = useState(false)
 
   // Effect to fetch quiz data on component mount
   useEffect(() => {
@@ -24,35 +25,36 @@ const Quiz = () => {
   if (!quizData || !quizData.wrongAnswers) return <div>Loading quiz...</div>; // Loading state
   const handleAnswerClick = (answer) => {
     console.log("Selected answer:", answer);
+
   }
+
+  const handleFeedbackSubmit = (feedback) => {
+    console.log('Submitting feedback:', feedback);
+    // Here, implement the submission logic, possibly using a service to POST feedback to your backend
+    setIsFeedbackOpen(false); // Close modal after submission
+  };
   return (
-    <>
-      <div>Quiz</div>
-      <div>
-        <p>{quizData.prompt}</p>
-        <button onClick={() => handleAnswerClick(quizData.answer)}>
+    <div className="flex flex-col items-center justify-center min-h-screen">
+      <h2 className="text-2xl font-bold mb-4">Quiz</h2>
+      <p className="text-xl mb-4">{quizData.prompt}</p>
+      <div className="flex flex-col items-center">
+        <button className="mb-2 px-4 py-2 border rounded text-white bg-blue-500 hover:bg-blue-600" onClick={() => handleAnswerClick(quizData.answer)}>
           {quizData.answer}
         </button>
-        {/* Map over alternative answers and display each as a button */}
         {quizData.wrongAnswers.map((altAnswer, index) => (
-          <button key={index} onClick={() => handleAnswerClick(altAnswer)}>
+          <button key={index} className="mb-2 px-4 py-2 border rounded text-white bg-blue-500 hover:bg-blue-600" onClick={() => handleAnswerClick(altAnswer)}>
             {altAnswer}
           </button>
         ))}
-        {/* 
-  <ul>
-    {quizData.alternativeTranslations.map((translation, index) => (
-      <li key={index}>{translation}</li>
-    ))}
-  </ul>
-*/}
+      </div>
 
-        {/* Display additional quiz data as needed */}
-      </div>
-      <div>
-        <Feedback />
-      </div>
-    </>
+      <button className="mt-4 px-4 py-2 border rounded text-blue-500 border-blue-500 hover:bg-blue-500 hover:text-white" onClick={() => setIsFeedbackOpen(true)}>Give Feedback</button>
+      <Feedback
+        isOpen={isFeedbackOpen}
+        onClose={() => setIsFeedbackOpen(false)}
+        onSubmit={handleFeedbackSubmit}
+      />
+    </div>
   );
 };
 
