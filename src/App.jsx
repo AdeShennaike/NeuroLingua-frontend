@@ -40,7 +40,7 @@ const App = () => {
       // If not logged in, navigate to the login page
       navigate('/login');
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    
   }, [user]); // Add user as a dependency to trigger the effect when user state changes
 
   return (
