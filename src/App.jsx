@@ -40,7 +40,6 @@ const App = () => {
       // If not logged in, navigate to the login page
       navigate('/login');
     }
-   
   }, [user]); // Add user as a dependency to trigger the effect when user state changes
 
   return (

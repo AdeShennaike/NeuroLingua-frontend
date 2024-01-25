@@ -5,7 +5,6 @@ const Feedback = ({ isOpen, onClose, onSubmit }) => {
   const [good, setGood] = useState(false);
 
   if (!isOpen) return null;
-
   return (
     <div className="fixed inset-0 bg-blue-100 bg-opacity-50 flex items-center justify-center p-4">
     <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg">
