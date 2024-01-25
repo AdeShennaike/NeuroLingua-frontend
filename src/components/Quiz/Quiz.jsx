@@ -5,10 +5,11 @@ import * as quizService from "../../services/quizService";
 const Quiz = () => {
   // State to hold quiz data
   const [quizData, setQuizData] = useState({
-    alternateAnswers: [],
+    wrongAnswers: [],
     answer: "",
     question: ""
   });
+  const [isFeedbackOpen, setIsFeedbackOpen] = useState(false)
 
   // Effect to fetch quiz data on component mount
   useEffect(() => {
@@ -24,7 +25,14 @@ const Quiz = () => {
   if (!quizData || !quizData.wrongAnswers) return <div>Loading quiz...</div>; // Loading state
   const handleAnswerClick = (answer) => {
     console.log("Selected answer:", answer);
+
   }
+
+  const handleFeedbackSubmit = (feedback) => {
+    console.log('Submitting feedback:', feedback);
+    // Here, implement the submission logic, possibly using a service to POST feedback to your backend
+    setIsFeedbackOpen(false); // Close modal after submission
+  };
   return (
     <>
       <div>Quiz</div>
@@ -39,19 +47,14 @@ const Quiz = () => {
             {altAnswer}
           </button>
         ))}
-        {/* 
-  <ul>
-    {quizData.alternativeTranslations.map((translation, index) => (
-      <li key={index}>{translation}</li>
-    ))}
-  </ul>
-*/}
+      </div>
 
-        {/* Display additional quiz data as needed */}
-      </div>
-      <div>
-        <Feedback />
-      </div>
+      <button onClick={() => setIsFeedbackOpen(true)}>Give Feedback</button> {/* Button to open feedback modal */}
+      <Feedback
+        isOpen={isFeedbackOpen}
+        onClose={() => setIsFeedbackOpen(false)}
+        onSubmit={handleFeedbackSubmit}
+      />
     </>
   );
 };
