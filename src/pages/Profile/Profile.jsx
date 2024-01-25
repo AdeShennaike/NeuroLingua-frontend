@@ -4,7 +4,7 @@ import * as profileService from '../../services/profileService'
 const Profile = () => {
   const [profile, setProfile] = useState(null)
 
-  useEffect(()=> {
+  useEffect(() => {
     const fetchProfile = async () => {
       const profileData = await profileService.getProfile()
       setProfile(profileData)
@@ -14,24 +14,45 @@ const Profile = () => {
 
   if (!profile) return <div>Loading profile...</div>;
 
+  const handleChange = (event, parameter) => {
+    setProfile({ ...profile, [parameter]: event.target.value });
+  }
+
+  const handleSubmit = async () => {
+    const updatedProfile = await profileService.updateProfile(profile);
+    console.log('Profile updated:', updatedProfile)
+  }
+
   return (
     <>
       <h1>Profile</h1>
       {profile ? (
         <>
-          <p><strong>Language:</strong> {profile.language}</p>
-        <p><strong>Tone:</strong> {profile.tone}</p>
-        <p><strong>Difficulty:</strong> {profile.difficulty}</p>
-        <p><strong>Drama:</strong> {profile.drama}</p>
-        <p><strong>Formality:</strong> {profile.formality}</p>
-        <p><strong>Created At:</strong> {new Date(profile.createdAt).toLocaleDateString()}</p>
-        <p><strong>Updated At:</strong> {new Date(profile.updatedAt).toLocaleDateString()}</p>
+          <div><strong>Language:</strong> <select value={profile.language} onChange={(e) => handleChange(e, 'language')}>
+            {/* Assuming 'English', 'Spanish', etc., are the possible options */}
+            <option value="English">English</option>
+            <option value="Spanish">Spanish</option>
+            <option value="Arabic">Arabic</option>
+            <option value="Korean">Korean</option>
+            {/* Add more options as needed */}
+          </select></div>
+          <div><strong>Tone:</strong> {profile.tone}</div>
+          <div><strong>Difficulty:</strong> <select value={profile.difficulty} onChange={(e) => handleChange(e, 'difficulty')}>
+            <option value="Easy">Easy</option>
+            <option value="Medium">Medium</option>
+            <option value="Hard">Hard</option>
+          </select></div>
+          <div><strong>Drama:</strong> {profile.drama}</div>
+          <div><strong>Formality:</strong> {profile.formality}</div>
+          <div><strong>Created At:</strong> {new Date(profile.createdAt).toLocaleDateString()}</div>
+          <div><strong>Updated At:</strong> {new Date(profile.updatedAt).toLocaleDateString()}</div>
+          <button onClick={handleSubmit}>Save Changes</button>
         </>
-      ): (
-        <p>No profiles yet</p>
+      ) : (
+        <p>WHERES THE PROFILE FRITZ?!?!?!?!</p>
       )}
     </>
   )
 }
- 
+
 export default Profile
