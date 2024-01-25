@@ -23,4 +23,24 @@ async function getProfile() {
 
 }
 
-export { getProfile }
+async function updateProfile(profileData) {
+  try {
+    const token = localStorage.getItem('token');
+    const res = await fetch(`${BASE_URL}/preferences`, {
+      method: 'PUT', // Assuming POST is the correct method for your server
+      headers: { 
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(profileData)
+    });
+
+    const updatedProfile = await res.json();
+    console.log(updatedProfile);
+    return updatedProfile;
+  } catch (error) {
+    console.error('Error updating profile:', error);
+  }
+}
+
+export { getProfile, updateProfile }
