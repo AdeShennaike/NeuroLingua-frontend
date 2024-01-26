@@ -61,5 +61,29 @@ async function sendFeedback(message, quizId, good) {
         console.error('Error sending feedback:', error)
     }
 }
+async function answerQuiz(id) {
+    try {
+        const token = localStorage.getItem('token')
+        const res = await fetch(`${BASE_URL}/answer/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        });
 
-export { getQuiz, getHistory, sendFeedback }
+        // Handle the response here (e.g., convert to JSON or check status)
+        const quizAnswer = await res.json();
+        console.log(quizAnswer);
+        return quizAnswer;
+    } catch (error) {
+        console.error('Error fetching quizAnswer:', error);
+    }
+}
+
+export {
+    getQuiz,
+    getHistory,
+    sendFeedback,
+    answerQuiz
+}

@@ -10,19 +10,34 @@ const Quiz = () => {
     question: ""
   })
   const [isFeedbackOpen, setIsFeedbackOpen] = useState(false)
+  const [answered, setAnswered] = useState(false)
 
+
+  // Effect to fetch quiz data on component mount
   useEffect(() => {
     const fetchQuiz = async () => {
-      const quiz = await quizService.getQuiz()
-      setQuizData(quiz)
+      const quiz = await quizService.getQuiz();
+      setQuizData(quiz); // Set fetched quiz data into state
+      // localStorage.setItem('quizId', quiz._id)
+      // const quizId = localStorage.getItem('quizId')
+      console.log(quiz)
+      quizService.answerQuiz(quiz._id)
     };
-    fetchQuiz()
-  }, [])
+    fetchQuiz();
+  }, []); // Empty dependency array means this effect runs once on mount
+
+  const newQuiz = async () => {
+    const quiz = await quizService.getQuiz();
+    setQuizData(quiz); // Set fetched quiz data into state
+    setAnswered(false); // Set fetched quiz data into state
+  }
+
 
   if (!quizData || !quizData.wrongAnswers) return <div>Loading quiz...</div>
 
   const handleAnswerClick = (answer) => {
     console.log("Selected answer:", answer)
+    setAnswered(true)
   }
 
   return (
@@ -34,6 +49,7 @@ const Quiz = () => {
           <button
             className="mb-2 px-4 py-2 border rounded text-white bg-blue-500 hover:bg-blue-600 w-full"
             onClick={() => handleAnswerClick(quizData.answer)}
+            style={{ backgroundColor: answered ? 'green' : 'blue' }}
           >
             {quizData.answer}
           </button>
@@ -54,7 +70,9 @@ const Quiz = () => {
         >
           Give Feedback
         </button>
-
+        <button onClick={newQuiz}>
+          next quiz
+        </button>
         <Feedback
           isOpen={isFeedbackOpen}
           onClose={() => setIsFeedbackOpen(false)}
