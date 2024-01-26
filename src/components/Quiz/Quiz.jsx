@@ -22,14 +22,8 @@ const Quiz = () => {
   if (!quizData || !quizData.wrongAnswers) return <div>Loading quiz...</div>
 
   const handleAnswerClick = (answer) => {
-    console.log("Selected answer:", answer);
-  };
-
-  const handleFeedbackSubmit = (feedback) => {
-    console.log('Submitting feedback:', feedback);
-    // Here, implement the submission logic, possibly using a service to POST feedback to your backend
-    setIsFeedbackOpen(false); // Close modal after submission
-  };
+    console.log("Selected answer:", answer)
+  }
 
   return (
     <div className="flex items-center justify-center h-screen">
@@ -64,7 +58,7 @@ const Quiz = () => {
         <Feedback
           isOpen={isFeedbackOpen}
           onClose={() => setIsFeedbackOpen(false)}
-          onSubmit={handleFeedbackSubmit}
+          quizId={quizData._id}
         />
       </div>
     </div>

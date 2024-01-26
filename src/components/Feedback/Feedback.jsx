@@ -1,17 +1,24 @@
 import  { useState } from 'react';
+import { sendFeedback } from '../../services/quizService';
 
-const Feedback = ({ isOpen, onClose, onSubmit }) => {
-  const [message, setMessage] = useState('');
-  const [good, setGood] = useState(false);
+const Feedback = ({ isOpen, onClose, quizId }) => {
+  const [message, setMessage] = useState('')
+  const [good, setGood] = useState(false)
 
-  if (!isOpen) return null;
+  const handleFeedbackSubmit = (message, good) => {
+
+    sendFeedback(message, quizId, good)
+  };
+
+  if (!isOpen) return null
   return (
     <div className="fixed inset-0 bg-blue-100 bg-opacity-50 flex items-center justify-center p-4">
     <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg">
       <h2 className="text-xl font-semibold mb-4">Feedback</h2>
       <form onSubmit={(e) => {
-        e.preventDefault();
-        onSubmit({ message, good });
+        e.preventDefault()
+        handleFeedbackSubmit(message, quizId, good)
+        onClose()
       }}>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">Message:</label>
