@@ -41,7 +41,6 @@ const App = () => {
       // If not logged in, navigate to the login page
       navigate('/login');
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]); // Add user as a dependency to trigger the effect when user state changes
 
   return (
@@ -68,7 +67,7 @@ const App = () => {
           element={
             <ProtectedRoute user={user}>
               {/* Profile component wrapped in ProtectedRoute to ensure it's accessible only to authenticated users */}
-              <Profile />
+              <Profile handleLogout={handleLogout} />
             </ProtectedRoute>
           }
         />
@@ -80,6 +79,10 @@ const App = () => {
           path="/quiz"
           element={<News />}
           // element={<Quiz />}
+        />
+         <Route
+          path="/news"
+          element={<News />}
         />
       </Routes>
     </>

@@ -12,7 +12,6 @@ const LoginPage = props => {
 
   return (
     <main className={styles.container}>
-      <h1>Log In</h1>
       <p>{message}</p>
       <LoginForm
         {...props}
