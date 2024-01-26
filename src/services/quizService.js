@@ -44,4 +44,29 @@ async function getHistory() {
     
 
 }
-export {getQuiz, getHistory }
+
+async function getAnswer(id) {
+     try {
+        const token = localStorage.getItem('token')
+        const res = await fetch(`${BASE_URL}/answer/${id}`, {
+            method: 'GET',
+            headers: {
+                 'Content-Type': 'application/json',
+                 'Authorization': `Bearer ${token}`
+                 }
+        });
+
+        // Handle the response here (e.g., convert to JSON or check status)
+        const quiz = await res.json();
+        console.log(quiz);
+        return quiz;
+    } catch (error) {
+        console.error('Error fetching quizAnswer:', error);
+    }
+}
+
+export {
+    getQuiz,
+    getHistory,
+    getAnswer
+ }
