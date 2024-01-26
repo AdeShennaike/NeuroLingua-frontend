@@ -10,7 +10,7 @@ const ArticlePreview = (props) => {
     <>
       <div className="news-article-preview" style={{ padding: "10px", backgroundColor: "grey" }}>
         <NewsContent content={content} displayClass="news-preview-headline"/>
-        <div onClick={handleSelect} class="news-article-select-button">READ</div>
+        <div onClick={handleSelect} className="news-article-select-button">READ</div>
       </div>
     </>
   )

@@ -1,5 +1,5 @@
 import React from 'react'
-import { getQuizHistory } from '../../services/quizService'
+import { getHistory } from '../../services/quizService'
 import { useEffect, useState } from 'react'
 
 const History = () => {
@@ -8,7 +8,7 @@ const History = () => {
 
   useEffect(() => {
     const getQuizzes = async () => {
-      const quizzes = await getQuizHistory()
+      const quizzes = await getHistory()
       setQuizList(quizzes)
     } 
     getQuizzes()
