@@ -23,7 +23,6 @@ async function getQuiz() {
 }
 
 async function getHistory() {
-
     try {
         const token = localStorage.getItem('token')
         const res = await fetch(`${BASE_URL}/history`, {
@@ -61,6 +60,7 @@ async function sendFeedback(message, quizId, good) {
         console.error('Error sending feedback:', error)
     }
 }
+
 async function answerQuiz(id) {
     try {
         const token = localStorage.getItem('token')
