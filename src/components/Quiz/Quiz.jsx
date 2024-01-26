@@ -8,20 +8,18 @@ const Quiz = () => {
     wrongAnswers: [],
     answer: "",
     question: ""
-  });
-  const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
+  })
+  const [isFeedbackOpen, setIsFeedbackOpen] = useState(false)
 
-  // Effect to fetch quiz data on component mount
   useEffect(() => {
     const fetchQuiz = async () => {
-      const quiz = await quizService.getQuiz();
-      setQuizData(quiz); // Set fetched quiz data into state
+      const quiz = await quizService.getQuiz()
+      setQuizData(quiz)
     };
-    fetchQuiz();
-  }, []); // Empty dependency array means this effect runs once on mount
+    fetchQuiz()
+  }, [])
 
-  // Conditional rendering based on fetched data
-  if (!quizData || !quizData.wrongAnswers) return <div>Loading quiz...</div>; // Loading state
+  if (!quizData || !quizData.wrongAnswers) return <div>Loading quiz...</div>
 
   const handleAnswerClick = (answer) => {
     console.log("Selected answer:", answer);
