@@ -10,6 +10,7 @@ import Profile from './pages/Profile/Profile'; // Ensure correct import for Prof
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import Quiz from './components/Quiz/Quiz';
 import History from './pages/History/History';
+import News from './pages/News/News';
 
 
 
@@ -68,7 +69,7 @@ const App = () => {
           element={
             <ProtectedRoute user={user}>
               {/* Profile component wrapped in ProtectedRoute to ensure it's accessible only to authenticated users */}
-              <Profile />
+              <Profile handleLogout={handleLogout} />
             </ProtectedRoute>
           }
         />
@@ -79,6 +80,10 @@ const App = () => {
          <Route
           path="/quiz"
           element={<Quiz />}
+        />
+         <Route
+          path="/news"
+          element={<News />}
         />
       </Routes>
     </>

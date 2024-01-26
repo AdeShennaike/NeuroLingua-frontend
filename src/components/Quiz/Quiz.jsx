@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Feedback from "../Feedback/Feedback";
 import * as quizService from "../../services/quizService";
-import { useParams } from 'react-router-dom';
 
 const Quiz = () => {
   // State to hold quiz data
@@ -10,18 +9,12 @@ const Quiz = () => {
     answer: "",
     question: ""
   });
-
-  const [isFeedbackOpen, setIsFeedbackOpen] = useState(false)
-
-  const {id} = useParams()
-
-  let isRight = false
+  const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
 
   // Effect to fetch quiz data on component mount
   useEffect(() => {
     const fetchQuiz = async () => {
       const quiz = await quizService.getQuiz();
-      console.log()
       setQuizData(quiz); // Set fetched quiz data into state
     };
     fetchQuiz();
@@ -32,11 +25,7 @@ const Quiz = () => {
 
   const handleAnswerClick = (answer) => {
     console.log("Selected answer:", answer);
-    console.log(quizData.answer)
-    if(answer === quizData.answer){
-      console.log('yurrrrrrrrrrrrrr')
-      isRight = true
-    }
+    
   }
 
   const handleFeedbackSubmit = (feedback) => {
@@ -45,40 +34,42 @@ const Quiz = () => {
     setIsFeedbackOpen(false); // Close modal after submission
   };
 
-  // const MonsterDetails = () => {
-  //   const [monsterDetails, setMonsterDetails] = useState({})
-  //   const {monsterId} = useParams()
-  
-  //   useEffect(() => {
-  //     const monsterDetails = async () => {
-  //         const monster = await getMonsterDetails(monsterId)
-  //         setMonsterDetails(monster)
-  //     }
-  //     monsterDetails()
-  //   }, [monsterId])
-
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
-      {!isRight && <h1>You're Smarter Than You Look!"</h1>}
-      <h2 className="text-2xl font-bold mb-4">Quiz</h2>
-      <p className="text-xl mb-4">{quizData.prompt}</p>
-      <div className="flex flex-col items-center">
-        <button className="mb-2 px-4 py-2 border rounded text-white bg-blue-500 hover:bg-blue-600" onClick={() => handleAnswerClick(quizData.answer)}>
-          {quizData.answer}
-        </button>
-        {quizData.wrongAnswers.map((altAnswer, index) => (
-          <button key={index} className="mb-2 px-4 py-2 border rounded text-white bg-blue-500 hover:bg-blue-600" onClick={() => handleAnswerClick(altAnswer)}>
-            {altAnswer}
+    <div className="flex items-center justify-center h-screen">
+      <div className="bg-white p-8 rounded-md shadow-md md:w-96 w-full">
+        <h2 className="text-2xl mb-4">What does this sentence mean?</h2>
+        <p className="text-xl mb-4">{quizData.prompt}</p>
+        <div className="flex flex-col items-center">
+          <button
+            className="mb-2 px-4 py-2 border rounded text-white bg-blue-500 hover:bg-blue-600 w-full" 
+            onClick={() => handleAnswerClick(quizData.answer)}
+          >
+            {quizData.answer}
           </button>
-        ))}
-      </div>
+          {quizData.wrongAnswers.map((altAnswer, index) => (
+            <button
+              key={index}
+              className="mb-2 px-4 py-2 border rounded text-white bg-blue-500 hover:bg-blue-600 w-full"
+              onClick={() => handleAnswerClick(altAnswer)}
+            >
+              {altAnswer}
+            </button>
+          ))}
+        </div>
 
-      <button className="mt-4 px-4 py-2 border rounded text-blue-500 border-blue-500 hover:bg-blue-500 hover:text-white" onClick={() => setIsFeedbackOpen(true)}>Give Feedback</button>
-      <Feedback
-        isOpen={isFeedbackOpen}
-        onClose={() => setIsFeedbackOpen(false)}
-        onSubmit={handleFeedbackSubmit}
-      />
+        <button
+          className="mt-4 px-4 py-2 border rounded text-blue-500 border-blue-500 hover:bg-blue-500 hover:text-white w-full"
+          onClick={() => setIsFeedbackOpen(true)}
+        >
+          Give Feedback
+        </button>
+
+        <Feedback
+          isOpen={isFeedbackOpen}
+          onClose={() => setIsFeedbackOpen(false)}
+          onSubmit={handleFeedbackSubmit}
+        />
+      </div>
     </div>
   );
 };

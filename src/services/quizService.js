@@ -49,7 +49,7 @@ async function getAnswer(id) {
     try {
         const token = localStorage.getItem('token')
         const res = await fetch(`${BASE_URL}/answer/${id}`, {
-            method: 'GET',
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`

@@ -3,16 +3,16 @@ import { Link } from 'react-router-dom';
 import { FaUserEdit } from 'react-icons/fa';
 import { MdManageHistory } from 'react-icons/md';
 import { LuBrain } from 'react-icons/lu';
-import { IoMdLogOut } from 'react-icons/io';
 import { PiPersonSimpleThrowDuotone } from 'react-icons/pi';
 import { LiaSignLanguageSolid } from 'react-icons/lia';
+import { IoNewspaperOutline } from "react-icons/io5";
 
-const NavBar = ({ user, handleLogout, handleSignupOrLogin }) => {
+const NavBar = ({ user, handleSignupOrLogin }) => {
   const loggedInMenus = [
+    { name: 'News', icon: <IoNewspaperOutline />, route: '/news', dis: 'translate-x-32' },
     { name: 'Quiz', icon: <LuBrain />, route: '/quiz', dis: 'translate-x-0' },
     { name: 'History', icon: <MdManageHistory />, route: '/history', dis: 'translate-x-16' },
-    { name: 'Profile', icon: <FaUserEdit />, route: '/profile', dis: 'translate-x-32' },
-    { name: 'Log out', icon: <IoMdLogOut />, dis: 'translate-x-48', onClick: handleLogout },
+    { name: 'Profile', icon: <FaUserEdit />, route: '/profile', dis: 'translate-x-48' },
   ];
 
   const loggedOutMenus = [
@@ -40,7 +40,7 @@ const NavBar = ({ user, handleLogout, handleSignupOrLogin }) => {
               i === active
                 ? 'text-white bg-gray-500 rounded-full p-2 w-16 h-16'
                 : 'text-gray-500'
-            }`}
+            } group`}
             onClick={() => {
               setActive(i);
               if (menu.onClick) menu.onClick();
@@ -50,6 +50,10 @@ const NavBar = ({ user, handleLogout, handleSignupOrLogin }) => {
               marginBottom: '10px',
             }}
           >
+            {/* Decorative elements */}
+            <span className="w-3.5 h-3.5 bg-transparent absolute top-4 -left-[18px] rounded-tr-[11px] shadow-myShadow1"></span>
+            <span className="w-3.5 h-3.5 bg-transparent absolute top-4 -right-[18px] rounded-tl-[11px] shadow-myShadow2"></span>
+
             {menu.icon ? (
               <span
                 className={`text-xl cursor-pointer duration-500 ${
@@ -59,7 +63,10 @@ const NavBar = ({ user, handleLogout, handleSignupOrLogin }) => {
                 <span className="inline-block">{menu.icon}</span>
               </span>
             ) : null}
-            <div className={`${i === active ? 'text-white' : 'text-gray-500'} mt-2 text-xs text-center`} style={{ marginTop: '0.98rem' }}>
+            <div
+              className={`${i === active ? 'text-white' : 'text-gray-500'} mt-2 text-xs text-center`}
+              style={{ marginTop: '0.98rem' }}
+            >
               {menu.name}
             </div>
           </Link>
@@ -70,6 +77,7 @@ const NavBar = ({ user, handleLogout, handleSignupOrLogin }) => {
 };
 
 export default NavBar;
+
 
 
 
