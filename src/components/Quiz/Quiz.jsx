@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Feedback from "../Feedback/Feedback";
 import * as quizService from "../../services/quizService";
+import { useParams } from 'react-router-dom';
 
 const Quiz = () => {
   // State to hold quiz data
@@ -9,7 +10,12 @@ const Quiz = () => {
     answer: "",
     question: ""
   });
+
   const [isFeedbackOpen, setIsFeedbackOpen] = useState(false)
+
+  const {id} = useParams()
+
+  let isRight = false
 
   // Effect to fetch quiz data on component mount
   useEffect(() => {
@@ -23,9 +29,14 @@ const Quiz = () => {
 
   // Conditional rendering based on fetched data
   if (!quizData || !quizData.wrongAnswers) return <div>Loading quiz...</div>; // Loading state
+
   const handleAnswerClick = (answer) => {
     console.log("Selected answer:", answer);
-
+    console.log(quizData.answer)
+    if(answer === quizData.answer){
+      console.log('yurrrrrrrrrrrrrr')
+      isRight = true
+    }
   }
 
   const handleFeedbackSubmit = (feedback) => {
@@ -33,8 +44,22 @@ const Quiz = () => {
     // Here, implement the submission logic, possibly using a service to POST feedback to your backend
     setIsFeedbackOpen(false); // Close modal after submission
   };
+
+  // const MonsterDetails = () => {
+  //   const [monsterDetails, setMonsterDetails] = useState({})
+  //   const {monsterId} = useParams()
+  
+  //   useEffect(() => {
+  //     const monsterDetails = async () => {
+  //         const monster = await getMonsterDetails(monsterId)
+  //         setMonsterDetails(monster)
+  //     }
+  //     monsterDetails()
+  //   }, [monsterId])
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
+      {!isRight && <h1>You're Smarter Than You Look!"</h1>}
       <h2 className="text-2xl font-bold mb-4">Quiz</h2>
       <p className="text-xl mb-4">{quizData.prompt}</p>
       <div className="flex flex-col items-center">
