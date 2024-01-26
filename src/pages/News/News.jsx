@@ -24,15 +24,21 @@ const News = () => {
 
   const handleSelect = (article) => {
     const displayArticle = () => {
-      console.log(article)
       setSelectedArticle(article)
     }
     displayArticle()
   }
+
+  const handleBack = () => {
+    const back = () => {
+      setSelectedArticle(null)
+    }
+    back()
+  }
   
   return (
     <div>
-      <div>News</div>
+      <div className="news-title" onClick={handleBack}>News</div>
       {selectedArticle
       ? <Article content={selectedArticle} />
       : <NewsList news={news} handleSelect={handleSelect}/>}

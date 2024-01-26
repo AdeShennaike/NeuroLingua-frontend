@@ -8,9 +8,9 @@ const Article = (props) => {
     <div className="news-article">
       <NewsContent displayClass="news-headline" content={content.headline} />
       <NewsContent displayClass="news-author" content={content.author} />
-      <NewsContent displayClass="news-headline" content={content.date} />
-      {content.content.map((section) => {
-        return <NewsContent className="news-headline" content={section} />
+      <NewsContent displayClass="news-date" content={content.date} />
+      {content.content.map((section, index) => {
+        return <NewsContent key={index} className="news-paragraph" content={section} />
       })}
     </div>
   )
