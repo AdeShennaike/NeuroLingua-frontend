@@ -23,7 +23,6 @@ async function getQuiz() {
 }
 
 async function getHistory() {
-
     try {
         const token = localStorage.getItem('token')
         const res = await fetch(`${BASE_URL}/history`, {
@@ -62,4 +61,29 @@ async function sendFeedback(message, quizId, good) {
     }
 }
 
-export { getQuiz, getHistory, sendFeedback }
+async function answerQuiz(id) {
+    try {
+        const token = localStorage.getItem('token')
+        const res = await fetch(`${BASE_URL}/answer/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
+        // Handle the response here (e.g., convert to JSON or check status)
+        const quizAnswer = await res.json();
+        console.log(quizAnswer);
+        return quizAnswer;
+    } catch (error) {
+        console.error('Error fetching quizAnswer:', error);
+    }
+}
+
+export {
+    getQuiz,
+    getHistory,
+    sendFeedback,
+    answerQuiz
+}
