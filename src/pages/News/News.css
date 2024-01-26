@@ -2,3 +2,36 @@
   font-size: 200%;
   font-weight: bold;
 }
+
+.news-list {
+  margin: 10px;
+  padding: 10px;
+}
+
+.news-article-preview {
+  margin: 10px;
+  padding: 10px;
+}
+
+.news-title {
+  font-size: 250%;
+  font-weight: bold;
+  margin: 20px;
+}
+
+
+.news-author {
+  font-weight: bold;
+  font-style: italic;
+  margin: 10px;
+}
+
+.news-date {
+  font-style: italic;
+  margin: 10px;
+}
+
+.news-paragraph {
+  margin: 10px;
+  font-weight: bold;
+}

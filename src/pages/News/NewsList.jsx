@@ -6,10 +6,8 @@ const NewsList = (props) => {
 
   return (
     <div>
-      <div>News</div>
       {news
       ? news.map((a,index) => {
-        console.log(a)
         return <ArticlePreview key={index} content={a.headline} displayClass="news-headline" handleSelect={() => handleSelect(a)} />
       })
       :<h2>Loading the news...</h2>}
