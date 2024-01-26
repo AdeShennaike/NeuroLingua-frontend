@@ -10,6 +10,7 @@ import Profile from './pages/Profile/Profile'; // Ensure correct import for Prof
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import Quiz from './components/Quiz/Quiz';
 import History from './pages/History/History';
+import News from './pages/News/News';
 
 
 
@@ -45,7 +46,6 @@ const App = () => {
 
   return (
     <>
-
       {/* NavBar component, passing user and handleLogout as props */}
       <NavBar user={user} handleLogout={handleLogout} handleSignupOrLogin={handleSignupOrLogin} />
 
@@ -59,9 +59,8 @@ const App = () => {
           </>
          : 
           <>
-          // If user is not logged in, render the login route
-          <Route path="/login" element={<Login handleSignupOrLogin={handleSignupOrLogin} />} />
-          <Route path="/signup" element={<Signup handleSignupOrLogin={handleSignupOrLogin} />} />
+            <Route path="/login" element={<Login handleSignupOrLogin={handleSignupOrLogin} />} />
+            <Route path="/signup" element={<Signup handleSignupOrLogin={handleSignupOrLogin} />} />
           </>
         }
         <Route
@@ -79,7 +78,8 @@ const App = () => {
         />
          <Route
           path="/quiz"
-          element={<Quiz />}
+          element={<News />}
+          // element={<Quiz />}
         />
       </Routes>
     </>
