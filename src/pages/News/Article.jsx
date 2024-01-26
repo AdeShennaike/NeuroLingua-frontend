@@ -2,15 +2,16 @@ import NewsContent from "./NewsContent"
 
 const Article = (props) => {
 
-  const { article } = props
+  const { content } = props
 
   return (
     <div className="news-article">
-      <NewsContent content={article.category} />
-      <NewsContent content={article.headline} />
-      <NewsContent content={article.author} />
-      <NewsContent content={article.date} />
-      <NewsContent content={article.content[0]} />
+      <NewsContent displayClass="news-headline" content={content.headline} />
+      <NewsContent displayClass="news-author" content={content.author} />
+      <NewsContent displayClass="news-headline" content={content.date} />
+      {content.content.map((section) => {
+        return <NewsContent className="news-headline" content={section} />
+      })}
     </div>
   )
 }

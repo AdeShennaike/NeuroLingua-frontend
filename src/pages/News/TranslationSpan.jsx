@@ -15,7 +15,7 @@ const TranslationSpan = (props) => {
   const toggleReveal = () => setRevealed(!revealed)
 
   return (
-    <span onClick={toggleReveal} style={{ cursor: 'pointer', textDecoration: 'underline' }}>
+    <span onClick={toggleReveal} style={{ textDecoration: 'underline' }}>
       {revealed ? englishContent : foreignContent}
     </span>
   )
