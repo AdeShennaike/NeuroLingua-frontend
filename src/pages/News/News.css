@@ -1,6 +1,7 @@
 .news-headline {
   font-size: 200%;
   font-weight: bold;
+  margin: 10px;
 }
 
 .news-list {
@@ -24,6 +25,7 @@
   font-weight: bold;
   font-style: italic;
   margin: 10px;
+  padding: 10px;
 }
 
 .news-date {
@@ -34,4 +36,31 @@
 .news-paragraph {
   margin: 10px;
   font-weight: bold;
+}
+
+.translation-span {
+
+}
+
+.translation-span.animate {
+  animation-name: flashFade;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes flashFade {
+  0% {
+    color: rgb(255, 255, 255);
+  }
+  100% {
+    color: black;
+  }
+}
+
+.translation-span {
+  cursor: pointer;
+}
+
+.translation-span.animate {
+  animation: flashFade 2s forwards;
 }
