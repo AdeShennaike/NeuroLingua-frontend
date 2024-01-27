@@ -11,27 +11,38 @@ const Quiz = () => {
   })
   const [isFeedbackOpen, setIsFeedbackOpen] = useState(false)
   const [answered, setAnswered] = useState(false)
-
+  const answerArr = []
 
   // Effect to fetch quiz data on component mount
   useEffect(() => {
     const fetchQuiz = async () => {
       const quiz = await quizService.getQuiz();
+      console.log('initial quiz output', quiz)
       setQuizData(quiz); // Set fetched quiz data into state
-      // localStorage.setItem('quizId', quiz._id)
-      // const quizId = localStorage.getItem('quizId')
-      console.log(quiz)
       quizService.answerQuiz(quiz._id)
+      quiz.wrongAnswers.map(answer => {
+        console.log('map answer', answer)
+        return answerArr.push(answer)
+      })
+      answerArr.push(quiz.answer)
+      console.log('answer array',answerArr)
     };
     fetchQuiz();
   }, []); // Empty dependency array means this effect runs once on mount
-
+  
   const newQuiz = async () => {
     const quiz = await quizService.getQuiz();
+    console.log('next Quiz', quiz)
     setQuizData(quiz); // Set fetched quiz data into state
     setAnswered(false); // Set fetched quiz data into state
+    quizService.answerQuiz(quiz._id)
+    quiz.wrongAnswers.map(answer => {
+      console.log('map answer', answer)
+      return answerArr.push(answer)
+    })
+    answerArr.push(quiz.answer)
+    console.log('answer array',answerArr)
   }
-
 
   if (!quizData || !quizData.wrongAnswers) return <div>Loading quiz...</div>
 
@@ -70,7 +81,10 @@ const Quiz = () => {
         >
           Give Feedback
         </button>
-        <button onClick={newQuiz}>
+        <button 
+          className="mt-4 px-4 py-2 border rounded text-blue-500 border-blue-500 hover:bg-blue-500 hover:text-white w-full"
+          onClick={newQuiz}
+        >
           next quiz
         </button>
         <Feedback
