@@ -25,11 +25,12 @@ const Quiz = () => {
         return answerArr.push(answer)
       })
       answerArr.push(quiz.answer)
-      console.log('answer array',answerArr)
+      console.log('answer array', answerArr)
     };
     fetchQuiz();
   }, []); // Empty dependency array means this effect runs once on mount
-  
+
+  // Next button handler
   const newQuiz = async () => {
     const quiz = await quizService.getQuiz();
     console.log('next Quiz', quiz)
@@ -41,59 +42,61 @@ const Quiz = () => {
       return answerArr.push(answer)
     })
     answerArr.push(quiz.answer)
-    console.log('answer array',answerArr)
+    console.log('answer array', answerArr)
   }
 
-  if (!quizData || !quizData.wrongAnswers) return <div>Loading quiz...</div>
-
+  // Answer buttons handler
   const handleAnswerClick = (answer) => {
     console.log("Selected answer:", answer)
     setAnswered(true)
   }
 
   return (
-    <div className="flex items-center justify-center h-screen">
-      <div className="bg-white p-8 rounded-md shadow-md md:w-96 w-full">
-        <h2 className="text-2xl mb-4">What does this sentence mean?</h2>
-        <p className="text-xl mb-4">{quizData.prompt}</p>
-        <div className="flex flex-col items-center">
-          <button
-            className="mb-2 px-4 py-2 border rounded text-white bg-blue-500 hover:bg-blue-600 w-full"
-            onClick={() => handleAnswerClick(quizData.answer)}
-            style={{ backgroundColor: answered ? 'green' : 'blue' }}
-          >
-            {quizData.answer}
-          </button>
-          {quizData.wrongAnswers.map((altAnswer, index) => (
+    (!quizData || !quizData.wrongAnswers) ?
+      <div>Loading quiz...</div>
+      :
+      <div className="flex items-center justify-center h-screen">
+        <div className="bg-white p-8 rounded-md shadow-md md:w-96 w-full">
+          <h2 className="text-2xl mb-4">What does this sentence mean?</h2>
+          <p className="text-xl mb-4">{quizData.prompt}</p>
+          <div className="flex flex-col items-center">
             <button
-              key={index}
               className="mb-2 px-4 py-2 border rounded text-white bg-blue-500 hover:bg-blue-600 w-full"
-              onClick={() => handleAnswerClick(altAnswer)}
+              onClick={() => handleAnswerClick(quizData.answer)}
+              style={{ backgroundColor: answered ? 'green' : 'blue' }}
             >
-              {altAnswer}
+              {quizData.answer}
             </button>
-          ))}
-        </div>
+            {quizData.wrongAnswers.map((altAnswer, index) => (
+              <button
+                key={index}
+                className="mb-2 px-4 py-2 border rounded text-white bg-blue-500 hover:bg-blue-600 w-full"
+                onClick={() => handleAnswerClick(altAnswer)}
+              >
+                {altAnswer}
+              </button>
+            ))}
+          </div>
 
-        <button
-          className="mt-4 px-4 py-2 border rounded text-blue-500 border-blue-500 hover:bg-blue-500 hover:text-white w-full"
-          onClick={() => setIsFeedbackOpen(true)}
-        >
-          Give Feedback
-        </button>
-        <button 
-          className="mt-4 px-4 py-2 border rounded text-blue-500 border-blue-500 hover:bg-blue-500 hover:text-white w-full"
-          onClick={newQuiz}
-        >
-          next quiz
-        </button>
-        <Feedback
-          isOpen={isFeedbackOpen}
-          onClose={() => setIsFeedbackOpen(false)}
-          quizId={quizData._id}
-        />
+          <button
+            className="mt-4 px-4 py-2 border rounded text-blue-500 border-blue-500 hover:bg-blue-500 hover:text-white w-full"
+            onClick={() => setIsFeedbackOpen(true)}
+          >
+            Give Feedback
+          </button>
+          <button
+            className="mt-4 px-4 py-2 border rounded text-blue-500 border-blue-500 hover:bg-blue-500 hover:text-white w-full"
+            onClick={newQuiz}
+          >
+            next quiz
+          </button>
+          <Feedback
+            isOpen={isFeedbackOpen}
+            onClose={() => setIsFeedbackOpen(false)}
+            quizId={quizData._id}
+          />
+        </div>
       </div>
-    </div>
   );
 };
 
