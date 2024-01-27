@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap');
+
+/* Custom font class */
+.custom-font {
+  font-family: 'GFS Didot', serif;
+}
+
+/* Updated font size for .text-xs */
+.text-xs {
+  font-size: 1rem;
+  line-height: 1rem;
+}
+
+.glowing-effect {
+  background-color: #FBFCFB; /* Light gray background */
+  border: 2px solid #DBBE80; /* New border color */
+  box-shadow: 0 0 4px #DBBE80, 0 0 6px #DBBE80, 0 0 8px #DBBE80; /* Decreased glowing effect (adjust values as needed) */
+  font-family: 'GFS Didot', serif; /* Custom font */
+}
+
+/* Text color */
+.glowing-effect div {
+  color: #FBFCFB !important; /* New text color (added !important to ensure it overrides any other styles) */
+  padding-top: 8px; /* Adjust padding-top as needed */
+}
+
+/* Icon color */
+.glowing-effect span {
+  color: #263736; /* New icon color */
+}
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

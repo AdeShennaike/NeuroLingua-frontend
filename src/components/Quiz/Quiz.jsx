@@ -40,7 +40,7 @@ const Quiz = () => {
         <p className="text-xl mb-4">{quizData.prompt}</p>
         <div className="flex flex-col items-center">
           <button
-            className="mb-2 px-4 py-2 border rounded text-white bg-blue-500 hover:bg-blue-600 w-full"
+            className="mb-2 px-4 py-2 border rounded text-white bg-[#17393A] hover:bg-[#366664] w-full"
             onClick={() => handleAnswerClick(quizData.answer)}
           >
             {quizData.answer}
@@ -48,7 +48,7 @@ const Quiz = () => {
           {quizData.wrongAnswers.map((altAnswer, index) => (
             <button
               key={index}
-              className="mb-2 px-4 py-2 border rounded text-white bg-blue-500 hover:bg-blue-600 w-full"
+              className="mb-2 px-4 py-2 border rounded text-white bg-[#17393A] hover:bg-[#366664] w-full"
               onClick={() => handleAnswerClick(altAnswer)}
             >
               {altAnswer}
@@ -57,7 +57,7 @@ const Quiz = () => {
         </div>
 
         <button
-          className="mt-4 px-4 py-2 border rounded text-blue-500 border-blue-500 hover:bg-blue-500 hover:text-white w-full"
+          className="mt-4 px-4 py-2 border rounded text-[#17393A] border-[#17393A] hover:bg-[#EFF4F3] hover:text-[#3F514E] w-full"
           onClick={() => setIsFeedbackOpen(true)}
         >
           Give Feedback
@@ -74,3 +74,17 @@ const Quiz = () => {
 };
 
 export default Quiz;
+
+
+
+
+
+
+
+
+
+
+
+
+
+

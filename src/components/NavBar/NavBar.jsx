@@ -6,6 +6,8 @@ import { LuBrain } from 'react-icons/lu';
 import { PiPersonSimpleThrowDuotone } from 'react-icons/pi';
 import { LiaSignLanguageSolid } from 'react-icons/lia';
 import { IoNewspaperOutline } from "react-icons/io5";
+import "./NavBar.css"
+
 
 const NavBar = ({ user, handleSignupOrLogin }) => {
   const loggedInMenus = [
@@ -30,7 +32,7 @@ const NavBar = ({ user, handleSignupOrLogin }) => {
   };
 
   return (
-    <footer className="fixed bottom-0 w-full bg-gray-800 text-white px-6 rounded-t-md">
+    <footer className="fixed bottom-0 w-full bg-[#042427] text-white px-6 rounded-t-md">
       <nav className={`flex ${user ? 'justify-between' : 'justify-center'} gap-8`}>
         {menus.map((menu, i) => (
           <Link
@@ -38,7 +40,7 @@ const NavBar = ({ user, handleSignupOrLogin }) => {
             to={menu.route}
             className={`relative text-center pt-6 ${
               i === active
-                ? 'text-white bg-gray-500 rounded-full p-2 w-16 h-16'
+                ? 'text-white bg-gray-500 rounded-full p-2 w-16 h-16 glowing-effect' // Added glowing-effect class here
                 : 'text-gray-500'
             } group`}
             onClick={() => {
@@ -77,6 +79,7 @@ const NavBar = ({ user, handleSignupOrLogin }) => {
 };
 
 export default NavBar;
+
 
 
 

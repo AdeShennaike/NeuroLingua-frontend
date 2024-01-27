@@ -11,10 +11,10 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import Quiz from './components/Quiz/Quiz';
 import History from './pages/History/History';
 import News from './pages/News/News';
-
-
-
 import * as authService from './services/authService';
+
+import backgroundVideo from './assets/milk.mp4'
+import overlayimage from './assets/logo2.png'
 
 const App = () => {
   const navigate = useNavigate();
@@ -27,7 +27,7 @@ const App = () => {
   }
 
   function handleSignupOrLogin() {
-    setUser(authService.getUser());
+    setUser(authService.getUser);
     console.log("handleSignupOrLogin called");
   }
   
@@ -45,10 +45,13 @@ const App = () => {
 
   return (
     <>
-
+      <video autoPlay loop muted className="video-background z-[-1] fixed w -full" >
+        <source src={backgroundVideo} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      
       {/* NavBar component, passing user and handleLogout as props */}
       <NavBar user={user} handleLogout={handleLogout} handleSignupOrLogin={handleSignupOrLogin} />
-
       {/* Routes definition for navigation */}
       <Routes>
         <Route path="/" element={<Landing user={user} />} />

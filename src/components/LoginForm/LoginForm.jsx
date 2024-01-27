@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import * as authService from '../../services/authService';
+import './LoginForm.module.css';
 
 const LoginForm = (props) => {
   const navigate = useNavigate();
@@ -34,7 +35,7 @@ const LoginForm = (props) => {
 
   return (
     <div className="flex items-center justify-center h-screen">
-      <div className="bg-white p-8 rounded-md shadow-md md:w-96 w-full mt-[-80px]">
+      <div className="bg-white/80 p-8 rounded-md shadow-md md:w-96 w-full mt-[-80px]">
         <h2 className="text-2xl font-bold mb-4">Log In</h2>
         <form autoComplete="off" onSubmit={handleSubmit}>
           <div className="mb-4">
