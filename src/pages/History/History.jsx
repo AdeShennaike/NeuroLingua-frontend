@@ -37,14 +37,14 @@ const [selectQuiz, setSelectQuiz] = useState(null)
   }
 
   return (
-    <>
-      <h2 className="quiz-prompt">{selectQuiz.prompt}</h2>
-      <p className="answer-button-correct">{selectQuiz.answer}</p>
-      <p className="close-button">{selectQuiz.wrongAnswers[0]}</p>
-      <p className="close-button">{selectQuiz.wrongAnswers[1]}</p>
-      <p className="close-button">{selectQuiz.wrongAnswers[2]}</p>
-      <button onClick={hideQuiz} className="close-button">Close</button>
-    </>
+    <div className='quiz-details'>
+      <h2>{selectQuiz.prompt}</h2>
+      <p className="answer-button">{selectQuiz.answer}</p>
+      <p>{selectQuiz.wrongAnswers[0]}</p>
+      <p className="answer-button">{selectQuiz.wrongAnswers[1]}</p>
+      <p>{selectQuiz.wrongAnswers[2]}</p>
+      <button onClick={hideQuiz}>Close</button>
+    </div>
     
   )
 }

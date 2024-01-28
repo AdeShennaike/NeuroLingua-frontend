@@ -49,7 +49,7 @@ const Quiz = () => {
           <button
             className="mb-2 px-4 py-2 border rounded text-white bg-blue-500 hover:bg-blue-600 w-full"
             onClick={() => handleAnswerClick(quizData.answer)}
-            style={{ backgroundColor: answered ? 'green' : 'blue' }}
+            style={answered ? { backgroundColor: 'green' } : {}}
           >
             {quizData.answer}
           </button>
