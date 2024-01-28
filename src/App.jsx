@@ -59,7 +59,7 @@ const App = () => {
           </>
          : 
           <>
-          // If user is not logged in, render the login route
+          {/* If user is not logged in, render the login route*/}
           <Route path="/login" element={<Login handleSignupOrLogin={handleSignupOrLogin} />} />
           <Route path="/signup" element={<Signup handleSignupOrLogin={handleSignupOrLogin} />} />
           </>
