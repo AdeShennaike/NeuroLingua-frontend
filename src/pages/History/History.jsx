@@ -1,5 +1,6 @@
 import * as quizService from '../../services/quizService'
 import { useState, useEffect } from 'react'
+import './History.css'
 
 const History = () => {
 const [history, setHistory] = useState(null)
@@ -30,21 +31,21 @@ const [selectQuiz, setSelectQuiz] = useState(null)
     return (
       <>
       {history.map((quiz, index) => {
-        return <h3 key={index} onClick={() => showQuiz(index)}>{quiz.prompt}</h3>
+        return <h3 className="history-preview" key={index} onClick={() => showQuiz(index)}>{quiz.prompt}</h3>
       })}
       </>
     )
   }
 
   return (
-    <>
-      <h2 className="quiz-prompt">{selectQuiz.prompt}</h2>
-      <p className="answer-button-correct">{selectQuiz.answer}</p>
-      <p className="close-button">{selectQuiz.wrongAnswers[0]}</p>
-      <p className="close-button">{selectQuiz.wrongAnswers[1]}</p>
-      <p className="close-button">{selectQuiz.wrongAnswers[2]}</p>
-      <button onClick={hideQuiz} className="close-button">Close</button>
-    </>
+    <div className='quiz-details'>
+      <h2>{selectQuiz.prompt}</h2>
+      <p className="answer-button">{selectQuiz.answer}</p>
+      <p className="wrong">{selectQuiz.wrongAnswers[0]}</p>
+      <p className="wrong">{selectQuiz.wrongAnswers[1]}</p>
+      <p className="wrong">{selectQuiz.wrongAnswers[2]}</p>
+      <button onClick={hideQuiz}>Close</button>
+    </div>
     
   )
 }
