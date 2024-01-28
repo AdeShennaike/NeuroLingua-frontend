@@ -53,7 +53,7 @@ const App = () => {
       </video>
       <img
   src={overlayImage} // Replace overlayImage with the path to your overlay image
-  alt="Overlay Image"
+  alt="Overlay"
   className="overlay-image z-[-1] fixed w-[212px] h-[220px]" // Adjust the width and height as desired
 />
 
