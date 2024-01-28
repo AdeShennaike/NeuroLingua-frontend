@@ -14,7 +14,9 @@ import News from './pages/News/News';
 import * as authService from './services/authService';
 
 import backgroundVideo from './assets/milk.mp4'
-import overlayimage from './assets/logo2.png'
+import overlayImage from './assets/logo2.png'
+
+
 
 const App = () => {
   const navigate = useNavigate();
@@ -45,10 +47,18 @@ const App = () => {
 
   return (
     <>
-      <video autoPlay loop muted className="video-background z-[-1] fixed w -full" >
+      <video autoPlay loop muted className="video-background z-[-1] fixed w-full" >
         <source src={backgroundVideo} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
+      <img
+  src={overlayImage} // Replace overlayImage with the path to your overlay image
+  alt="Overlay Image"
+  className="overlay-image z-[-1] fixed w-[212px] h-[220px]" // Adjust the width and height as desired
+/>
+
+
+
       
       {/* NavBar component, passing user and handleLogout as props */}
       <NavBar user={user} handleLogout={handleLogout} handleSignupOrLogin={handleSignupOrLogin} />

@@ -16,17 +16,22 @@ code {
 @tailwind components;
 @tailwind utilities;
 
-body {
 
-
-  /* background-image: url('../src/assets/logo2.png'); */
-  background-size: cover; /* Adjusts the size to 50% of its original size */
-  background-repeat: no-repeat;
-  /* Other background properties */
-}
 
 .video-background {
 
   max-width: none;
 
 }
+
+.overlay-image {
+  position: fixed;
+  top: 561px;
+  right: 339px;
+
+  @media (max-width: 768px) {
+    top: 583px; /* Adjust top position for smaller screens */
+    right: 20px; /* Adjust right position for smaller screens */
+  }
+}
+
