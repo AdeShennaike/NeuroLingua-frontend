@@ -94,6 +94,8 @@ const Quiz = () => {
             >
               Give Feedback
             </button>
+
+            {answered && (
             <button
               className="mt-4 px-4 py-2 border rounded text-blue-500 border-blue-500 hover:bg-blue-500 hover:text-white w-full"
               onClick={newQuiz}
@@ -101,6 +103,7 @@ const Quiz = () => {
             >
               next quiz
             </button>
+            )}
             <Feedback
               isOpen={isFeedbackOpen}
               onClose={() => setIsFeedbackOpen(false)}
