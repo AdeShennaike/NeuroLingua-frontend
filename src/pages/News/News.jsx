@@ -37,7 +37,7 @@ const News = () => {
   }
   
   return (
-    <div>
+    <div className="news-background">
       <div className="news-title" onClick={handleBack}>News</div>
       {selectedArticle
       ? <Article content={selectedArticle} />
