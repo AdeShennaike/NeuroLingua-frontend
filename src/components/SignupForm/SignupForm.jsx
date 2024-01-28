@@ -48,7 +48,7 @@ const SignupForm = (props) => {
 
   return (
     <div className="flex items-center justify-center h-screen">
-      <div className="bg-white p-8 rounded-md shadow-md md:w-96 w-full mt-[-80px]">
+      <div className="bg-white/80 p-8 rounded-md shadow-md md:w-96 w-full mt-[-80px]">
         <h2 className="text-2xl font-bold mb-4">Sign Up</h2>
         <form autoComplete="off" onSubmit={handleSubmit}>
           <div className="mb-4">
@@ -129,5 +129,6 @@ const SignupForm = (props) => {
 };
 
 export default SignupForm;
+
 
 

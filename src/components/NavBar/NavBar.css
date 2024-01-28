@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap');
+
+/* Custom font class */
+.custom-font {
+  font-family: 'GFS Didot', serif;
+}
+
+/* Updated font size for .text-xs */
+.text-xs {
+  font-size: 1rem;
+  line-height: 1rem;
+ 
+}
+
+
+/* General styles for the navbar */
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #042427; /* Adjust the color as needed */
+  color: white;
+  padding: 6px;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+
+
+.link {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 6px;
+  text-decoration: none;
+  color: inherit; /* Inherit text color from parent */
+}
+
+/* Styles for the active link */
+.active {
+  background-color: gray;
+  border-radius: 50%;
+  padding: 8px;
+  width: 60px;
+  height: 60px;
+  margin-bottom: -11px;
+  transform: translateY(-24px);
+}
+
+
+
+/* NavBar container */
+
+.navbar-container {
+  position: fixed;
+  bottom: 12%;
+  width: 94%; /* Reduce the width to make more room for the text */
+  max-width: 483px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #042427; /* Background color */
+  padding: 4px 0; /* Vertical padding */
+  border-radius: 25px; /* Rounded corners */
+  height: 52px; /* Height of the navbar */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid rgba(128, 128, 128, 0.5); /* Medium opaque grey border */
+}
+
+
+/* Style for the navigation menu */
+.nav {
+  display: flex;
+}
+
+/* Style for the "Neuro Lingua" text */
+.navbar-text {
+  color: white; /* Text color */
+  font-family: 'GFS Didot', serif; /* Font family */
+  z-index: 1; /* Ensures it appears above other elements */
+  font-size: 0.88rem; /* Reduced font size */
+  padding: 0 10px; /* Reduced padding */
+  margin: 0 10px; /* Adjusted margin */
+}
+
+
+
+
+/* NavBar item */
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  margin-left: 23px; /* Adjust the margin to control spacing */
+  margin-right: 23px; /* Adjust the margin to control spacing */
+  margin-top: 8px;
+}
+
+
+/* Adjust for medium screens */
+@media (max-width: 768px) {
+  .nav-item {
+      margin-left: 36px;
+      margin-right: 38px;
+  }
+}
+
+/* Adjust for small screens */
+@media (max-width: 480px) {
+  .nav-item {
+      margin-left: 18px;
+      margin-right: 5px;
+      margin-top: 10px;
+  }
+}
+
+
+/* Bubble */
+.bubble {
+  width: 24px; /* Adjust the width to make the bubble smaller */
+  height: 24px; /* Adjust the height to make the bubble smaller */
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%; /* Ensure the bubble is circular */
+  margin-bottom: 4px; /* Space between bubble and icon */
+}
+
+/* Icon */
+.menu-icon {
+  font-size: 16px; /* Adjust icon size as needed */
+  color: white; /* Icon color */
+}
+
+/* Menu name */
+.menu-name {
+  font-family: 'GFS Didot', serif;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 5px; /* Increase this value to move the menu name further down */
+}
+
+
+/* Left bubble */
+.bubble-left {
+  position: absolute;
+  left: 10%; /* Adjust this percentage to move the bubble horizontally */
+  top: 60%; /* Adjust this percentage to move the bubble down */
+  transform: translateY(-50%);
+}
+
+/* Right bubble */
+.bubble-right {
+  position: absolute;
+  right: 10%; /* Adjust this percentage to move the bubble horizontally */
+  top: 60%; /* Adjust this percentage to move the bubble down */
+  transform: translateY(-50%);
+}
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

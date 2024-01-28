@@ -15,3 +15,30 @@ code {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+.video-background {
+
+  max-width: none;
+
+}
+
+ 
+
+
+.overlay-image {
+  position: fixed;
+  top: 561px;
+  right: 339px;
+
+  @media (max-width: 768px) {
+    top: 570px; /* Adjust top position for smaller screens */
+    right: 7px; /* Adjust right position for smaller screens */
+  }
+}
+
+.h-screen {
+  height: 89vh;
+}
+

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import * as profileService from '../../services/profileService';
 import { Link } from 'react-router-dom';
 
+
 const Profile = ( {handleLogout} ) => {
   const [profile, setProfile] = useState(null);
 
@@ -26,12 +27,12 @@ const Profile = ( {handleLogout} ) => {
 
   return (
     <div className="flex items-center justify-center h-screen">
-      <div className="bg-white p-8 rounded-md shadow-md md:w-96 w-full">
+      <div className="bg-white/80 p-8 rounded-md shadow-md md:w-96 w-full">
         <h1 className="text-2xl font-bold mb-4">Profile</h1>
         <div className="text-lg mb-2 w-full">
           <strong className="text-xl">Language:</strong>
           <select
-            className="text-lg ml-2 border border-gray-300 rounded p-1"
+            className="text-lg ml-3 border border-gray-300 rounded p-1"
             value={profile.language}
             onChange={(e) => handleChange(e, 'language')}
           >
@@ -47,7 +48,7 @@ const Profile = ( {handleLogout} ) => {
         <div className="text-lg mb-2 w-full">
           <strong className="text-xl">Difficulty:</strong>
           <select
-            className="text-lg ml-2 border border-gray-300 rounded p-1"
+            className="text-lg ml-5 border border-gray-300 rounded p-1"
             value={profile.difficulty}
             onChange={(e) => handleChange(e, 'difficulty')}
           >
@@ -68,12 +69,22 @@ const Profile = ( {handleLogout} ) => {
         <div className="mb-4 w-full">
           <strong>Updated At:</strong> {new Date(profile.updatedAt).toLocaleDateString()}
         </div>
-        <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" onClick={handleSubmit}>
-            Save Changes
-          </button>
-        <button onClick={handleLogout} className="px-2 py-2 bg-red-500 text-white rounded hover:bg-blue-600" style={{ marginLeft: '10px' }}>
-            Log out
-          </button>
+        <button 
+  className="mt-4 px-4 py-2 border rounded text-[#17393A] border-[#17393A] hover:bg-[#EFF4F3] hover:text-[#3F514E] shadow-lg focus:outline-none focus:ring focus:border-blue-300 w-full mr-2"
+  onClick={handleSubmit}
+>
+  Save Changes
+</button>
+
+<button 
+  className="mt-4 px-4 py-2 border rounded bg-white/95 text-custom-red border-custom-red hover:bg-[#4e170d] hover:text-white shadow-lg focus:outline-none focus:ring focus:border-blue-300 w-full ml-[-1]"
+  onClick={handleLogout}
+>
+  Log out
+</button>
+
+
+
       </div>
     </div>
   );
