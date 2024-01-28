@@ -24,7 +24,8 @@ const Quiz = () => {
     console.log('answer array', newAnswers)
     setQuizShown(true)
   }
-// Function to randomize answer choices
+
+  // Function to randomize answer choices
   const shuffleArray = (array) => {
     let shuffledArray = [...array]
     for (let i = shuffledArray.length - 1; i > 0; i--) {
@@ -33,7 +34,7 @@ const Quiz = () => {
     }
     return shuffledArray;
   };
-  
+
   // Next button handler
   const newQuiz = async () => {
     const quiz = await quizService.getQuiz();
@@ -53,7 +54,7 @@ const Quiz = () => {
   }
 
   return (
-    <div className="flex items-center justify-center h-screen">
+        <div className="flex items-center justify-center h-screen">
       <div className="bg-white p-8 rounded-md shadow-md md:w-96 w-full">
         {!quizShown && (
           <div>
@@ -86,10 +87,10 @@ const Quiz = () => {
                   </button>
                 );
               })}
-            </div>
+          </div>
 
             <button
-              className="mt-4 px-4 py-2 border rounded text-blue-500 border-blue-500 hover:bg-blue-500 hover:text-white w-full"
+              className="mt-4 px-4 py-2 border rounded text-[#17393A] border-[#17393A] hover:bg-[#EFF4F3] hover:text-[#3F514E] w-full"
               onClick={() => setIsFeedbackOpen(true)}
             >
               Give Feedback
@@ -113,7 +114,6 @@ const Quiz = () => {
         )}
       </div>
     </div>
-
   );
 };
 

@@ -29,7 +29,7 @@ const Feedback = ({ isOpen, onClose, quizId }) => {
           <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600" checked={good} onChange={(e) => setGood(e.target.checked)} />
         </div>
         <div className="flex justify-between">
-          <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+          <button type="submit" className="bg-[#366664] hover:bg-[#17393A]  text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
             Submit
           </button>
           <button type="button" onClick={onClose} className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
