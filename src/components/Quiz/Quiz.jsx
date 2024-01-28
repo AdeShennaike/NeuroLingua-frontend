@@ -8,68 +8,96 @@ const Quiz = () => {
     wrongAnswers: [],
     answer: "",
     question: ""
-  });
-  const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
+  })
+  const [isFeedbackOpen, setIsFeedbackOpen] = useState(false)
+  const [answered, setAnswered] = useState(false)
+  const answerArr = []
 
   // Effect to fetch quiz data on component mount
   useEffect(() => {
     const fetchQuiz = async () => {
       const quiz = await quizService.getQuiz();
+      console.log('initial quiz output', quiz)
       setQuizData(quiz); // Set fetched quiz data into state
+      quizService.answerQuiz(quiz._id)
+      quiz.wrongAnswers.map(answer => {
+        console.log('map answer', answer)
+        return answerArr.push(answer)
+      })
+      answerArr.push(quiz.answer)
+      console.log('answer array', answerArr)
     };
     fetchQuiz();
   }, []); // Empty dependency array means this effect runs once on mount
 
-  // Conditional rendering based on fetched data
-  if (!quizData || !quizData.wrongAnswers) return <div>Loading quiz...</div>; // Loading state
+  // Next button handler
+  const newQuiz = async () => {
+    const quiz = await quizService.getQuiz();
+    console.log('next Quiz', quiz)
+    setQuizData(quiz); // Set fetched quiz data into state
+    setAnswered(false); // Set fetched quiz data into state
+    quizService.answerQuiz(quiz._id)
+    quiz.wrongAnswers.map(answer => {
+      console.log('map answer', answer)
+      return answerArr.push(answer)
+    })
+    answerArr.push(quiz.answer)
+    console.log('answer array', answerArr)
+  }
 
+  // Answer buttons handler
   const handleAnswerClick = (answer) => {
-    console.log("Selected answer:", answer);
-  };
-
-  const handleFeedbackSubmit = (feedback) => {
-    console.log('Submitting feedback:', feedback);
-    // Here, implement the submission logic, possibly using a service to POST feedback to your backend
-    setIsFeedbackOpen(false); // Close modal after submission
-  };
+    console.log("Selected answer:", answer)
+    setAnswered(true)
+  }
 
   return (
-    <div className="flex items-center justify-center h-screen">
-      <div className="bg-white p-8 rounded-md shadow-md md:w-96 w-full">
-        <h2 className="text-2xl mb-4">What does this sentence mean?</h2>
-        <p className="text-xl mb-4">{quizData.prompt}</p>
-        <div className="flex flex-col items-center">
-          <button
-            className="mb-2 px-4 py-2 border rounded text-white bg-[#17393A] hover:bg-[#366664] w-full"
-            onClick={() => handleAnswerClick(quizData.answer)}
-          >
-            {quizData.answer}
-          </button>
-          {quizData.wrongAnswers.map((altAnswer, index) => (
+    (!quizData || !quizData.wrongAnswers) ?
+      <div>Loading quiz...</div>
+      :
+      <div className="flex items-center justify-center h-screen">
+        <div className="bg-white p-8 rounded-md shadow-md md:w-96 w-full">
+          <h2 className="text-2xl mb-4">What does this sentence mean?</h2>
+          <p className="text-xl mb-4">{quizData.prompt}</p>
+          <div className="flex flex-col items-center">
             <button
-              key={index}
               className="mb-2 px-4 py-2 border rounded text-white bg-[#17393A] hover:bg-[#366664] w-full"
-              onClick={() => handleAnswerClick(altAnswer)}
+              onClick={() => handleAnswerClick(quizData.answer)}
+              style={{ backgroundColor: answered ? 'green' : 'blue' }}
             >
-              {altAnswer}
+              {quizData.answer}
             </button>
-          ))}
+
+            {quizData.wrongAnswers.map((altAnswer, index) => (
+              <button
+                key={index}
+                className="mb-2 px-4 py-2 border rounded text-white bg-blue-500 hover:bg-blue-600 w-full"
+                onClick={() => handleAnswerClick(altAnswer)}
+              >
+                {altAnswer}
+              </button>
+            ))}
+          </div>
+
+          <button
+            className="mt-4 px-4 py-2 border rounded text-[#17393A] border-[#17393A] hover:bg-[#EFF4F3] hover:text-[#3F514E] w-full"
+            onClick={() => setIsFeedbackOpen(true)}
+          >
+            Give Feedback
+          </button>
+          <button
+            className="mt-4 px-4 py-2 border rounded text-blue-500 border-blue-500 hover:bg-blue-500 hover:text-white w-full"
+            onClick={newQuiz}
+          >
+            next quiz
+          </button>
+          <Feedback
+            isOpen={isFeedbackOpen}
+            onClose={() => setIsFeedbackOpen(false)}
+            quizId={quizData._id}
+          />
         </div>
-
-        <button
-          className="mt-4 px-4 py-2 border rounded text-[#17393A] border-[#17393A] hover:bg-[#EFF4F3] hover:text-[#3F514E] w-full"
-          onClick={() => setIsFeedbackOpen(true)}
-        >
-          Give Feedback
-        </button>
-
-        <Feedback
-          isOpen={isFeedbackOpen}
-          onClose={() => setIsFeedbackOpen(false)}
-          onSubmit={handleFeedbackSubmit}
-        />
       </div>
-    </div>
   );
 };
 

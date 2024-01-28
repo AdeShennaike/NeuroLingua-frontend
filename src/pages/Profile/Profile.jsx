@@ -35,10 +35,10 @@ const Profile = ( {handleLogout} ) => {
             value={profile.language}
             onChange={(e) => handleChange(e, 'language')}
           >
-            <option value="English">English</option>
             <option value="Spanish">Spanish</option>
             <option value="Arabic">Arabic</option>
             <option value="Korean">Korean</option>
+            <option value="Chinese">Chinese</option>
           </select>
         </div>
         <div className="mb-2 w-full">
