@@ -8,7 +8,7 @@ const ArticlePreview = (props) => {
 
   return (
     <>
-      <div className="news-article-preview" style={{ padding: "10px", backgroundColor: "grey" }}>
+      <div className="news-article-preview" >
         <NewsContent content={content} displayClass="news-preview-headline"/>
         <div onClick={handleSelect} className="news-article-select-button">READ</div>
       </div>
