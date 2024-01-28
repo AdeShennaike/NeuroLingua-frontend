@@ -24,14 +24,21 @@ code {
 
 }
 
+ 
+
+
 .overlay-image {
   position: fixed;
   top: 561px;
   right: 339px;
 
   @media (max-width: 768px) {
-    top: 583px; /* Adjust top position for smaller screens */
-    right: 20px; /* Adjust right position for smaller screens */
+    top: 570px; /* Adjust top position for smaller screens */
+    right: 7px; /* Adjust right position for smaller screens */
   }
+}
+
+.h-screen {
+  height: 89vh;
 }
 

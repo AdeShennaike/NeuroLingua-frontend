@@ -27,7 +27,7 @@ const Profile = ( {handleLogout} ) => {
 
   return (
     <div className="flex items-center justify-center h-screen">
-      <div className="bg-white p-8 rounded-md shadow-md md:w-96 w-full">
+      <div className="bg-white/80 p-8 rounded-md shadow-md md:w-96 w-full">
         <h1 className="text-2xl font-bold mb-4">Profile</h1>
         <div className="text-lg mb-2 w-full">
           <strong className="text-xl">Language:</strong>
@@ -77,7 +77,7 @@ const Profile = ( {handleLogout} ) => {
 </button>
 
 <button 
-  className="mt-4 px-4 py-2 border rounded text-custom-red border-custom-red hover:bg-custom-red hover:text-white shadow-lg focus:outline-none focus:ring focus:border-blue-300 w-full ml-[-1]"
+  className="mt-4 px-4 py-2 border rounded bg-white/95 text-custom-red border-custom-red hover:bg-[#4e170d] hover:text-white shadow-lg focus:outline-none focus:ring focus:border-blue-300 w-full ml-[-1]"
   onClick={handleLogout}
 >
   Log out

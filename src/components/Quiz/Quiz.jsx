@@ -56,14 +56,14 @@ const Quiz = () => {
       <div>Loading quiz...</div>
       :
       <div className="flex items-center justify-center h-screen">
-        <div className="bg-white p-8 rounded-md shadow-md md:w-96 w-full">
+        <div className="bg-white/30 p-8 rounded-md shadow-md md:w-96 w-full">
           <h2 className="text-2xl mb-4">What does this sentence mean?</h2>
           <p className="text-xl mb-4">{quizData.prompt}</p>
           <div className="flex flex-col items-center">
             <button
-              className="mb-2 px-4 py-2 border rounded text-white bg-[#17393A] hover:bg-[#366664] w-full"
+              className="mb-2 px-4 py-2 border rounded text-white bg-[#366664] hover:bg-[#042427] w-full"
               onClick={() => handleAnswerClick(quizData.answer)}
-              style={{ backgroundColor: answered ? 'green' : 'blue' }}
+              style={{ backgroundColor: answered ? 'green' : '#366664' }}
             >
               {quizData.answer}
             </button>
@@ -71,7 +71,7 @@ const Quiz = () => {
             {quizData.wrongAnswers.map((altAnswer, index) => (
               <button
                 key={index}
-                className="mb-2 px-4 py-2 border rounded text-white bg-blue-500 hover:bg-blue-600 w-full"
+                className="mb-2 px-4 py-2 border rounded text-white bg-[#366664] hover:bg-[#042427] w-full"
                 onClick={() => handleAnswerClick(altAnswer)}
               >
                 {altAnswer}
@@ -80,16 +80,16 @@ const Quiz = () => {
           </div>
 
           <button
-            className="mt-4 px-4 py-2 border rounded text-[#17393A] border-[#17393A] hover:bg-[#EFF4F3] hover:text-[#3F514E] w-full"
+            className="mt-4 px-4 py-2 border rounded bg-white/95 text-[#17393A] border-[#17393A] hover:bg-[#EFF4F3] hover:text-[#3F514E] w-full"
             onClick={() => setIsFeedbackOpen(true)}
           >
             Give Feedback
           </button>
           <button
-            className="mt-4 px-4 py-2 border rounded text-blue-500 border-blue-500 hover:bg-blue-500 hover:text-white w-full"
+            className="mt-4 px-4 py-2 border bg-white/95 rounded text-[#366664] border-[#366664] hover:bg-[#EFF4F3] hover:text-[#1B403F] w-full"
             onClick={newQuiz}
           >
-            next quiz
+            Next Quiz
           </button>
           <Feedback
             isOpen={isFeedbackOpen}

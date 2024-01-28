@@ -10,10 +10,10 @@ import "./NavBar.css";
 
 const NavBar = ({ user, handleSignupOrLogin }) => {
   const loggedInMenus = [
-    { name: 'News', icon: <IoNewspaperOutline />, route: '/news' },
     { name: 'Quiz', icon: <LuBrain />, route: '/quiz' },
     { name: 'History', icon: <MdManageHistory />, route: '/history' },
     { name: 'Profile', icon: <FaUserEdit />, route: '/profile' },
+    { name: 'News', icon: <IoNewspaperOutline />, route: '/news' },
   ];
 
   const loggedOutMenus = [

@@ -47,7 +47,7 @@ const App = () => {
 
   return (
     <>
-      <video autoPlay loop muted className="video-background z-[-1] fixed w-full" >
+      <video autoPlay loop muted className="video-background z-[-1] fixed w-[385%]" >
         <source src={backgroundVideo} type="video/mp4" />
         Your browser does not support the video tag.
       </video>

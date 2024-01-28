@@ -81,10 +81,12 @@
   color: white; /* Text color */
   font-family: 'GFS Didot', serif; /* Font family */
   z-index: 1; /* Ensures it appears above other elements */
-  font-size: .88rem; /* Reduced font size */
+  font-size: 0.88rem; /* Reduced font size */
   padding: 0 10px; /* Reduced padding */
   margin: 0 10px; /* Adjusted margin */
 }
+
+
 
 
 /* NavBar item */
@@ -112,8 +114,8 @@
 @media (max-width: 480px) {
   .nav-item {
       margin-left: 18px;
-      margin-right: 38px;
-      margin-top: 8px;
+      margin-right: 5px;
+      margin-top: 10px;
   }
 }
 
