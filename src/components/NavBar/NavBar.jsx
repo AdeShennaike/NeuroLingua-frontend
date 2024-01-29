@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { FaUserEdit } from 'react-icons/fa';
 import { MdManageHistory } from 'react-icons/md';
 import { LuBrain } from 'react-icons/lu';
@@ -21,13 +21,18 @@ const NavBar = ({ user, handleSignupOrLogin }) => {
     { name: 'Sign up', icon: <LiaSignLanguageSolid />, route: '/signup' },
   ];
 
+  const location = useLocation();
   const menus = user ? loggedInMenus : loggedOutMenus;
   const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    const activeIndex = menus.findIndex(menu => menu.route === location.pathname);
+    setActive(activeIndex >= 0 ? activeIndex : 0);
+  }, [location, menus]);
 
   return (
     <footer className="navbar-container">
       <nav className="nav">
-        {/* Menu items */}
         {menus.map((menu, i) => (
           <Link
             key={i}
@@ -48,6 +53,7 @@ const NavBar = ({ user, handleSignupOrLogin }) => {
 };
 
 export default NavBar;
+
 
 
 

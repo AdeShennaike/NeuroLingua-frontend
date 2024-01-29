@@ -1,12 +1,37 @@
+.history-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, max-content));
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+  max-width: 1200px;
+}
 
 .history-preview {
+  background-color: white;
+  color: rgb(8, 66, 88);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+ 
+  max-width: 555px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 84%;
+  margin-top: 2px;
+  height: 47px;
+  font-weight: bold;
+}
 
-    margin: 20px 0;
-    padding: 5px 10px;
-    text-align: center;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
+.history-preview:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .quiz-details {
@@ -16,8 +41,16 @@
   justify-content: center;
   padding: 20px;
   margin: 20px auto;
-  height: 100%;
-  margin-top: 20vh;
+  height: auto;
+  margin-top: .1vh;
+  max-width: 555px;
+  
+}
+
+@media (max-width: 768px) {
+  .quiz-details {
+    margin-top: 10px;
+  }
 }
 
 .quiz-details h2,
@@ -37,7 +70,7 @@
 }
 
 .answer-button {
-  background-color: rgb(219, 254, 219);
+  background-color: rgb(198 216 198);
 }
 
 .wrong {
@@ -46,8 +79,9 @@
 
 button {
   cursor: pointer;
-  background-color: #007bff;
+  background-color: #042427a1;;
   color: white;
   border: none;
   border-radius: 5px;
 }
+
