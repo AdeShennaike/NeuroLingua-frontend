@@ -1,17 +1,3 @@
-/*body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}*/
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -26,17 +12,13 @@ code {
 
  
 
-
 .overlay-image {
   position: fixed;
-  top: 561px;
-  right: 339px;
-
-  @media (max-width: 768px) {
-    top: 570px; /* Adjust top position for smaller screens */
-    right: 7px; /* Adjust right position for smaller screens */
-  }
+  top: 69vh; /* Adjusted to be relative to the viewport height */
+  right: 24vw; 
 }
+
+
 
 .h-screen {
   height: 89vh;

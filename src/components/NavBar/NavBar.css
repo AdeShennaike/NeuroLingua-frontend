@@ -18,7 +18,7 @@
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: #042427; /* Adjust the color as needed */
+  background-color: #042427; 
   color: white;
   padding: 6px;
   border-top-left-radius: 25px;
@@ -35,7 +35,7 @@
   justify-content: center;
   padding-top: 6px;
   text-decoration: none;
-  color: inherit; /* Inherit text color from parent */
+  color: inherit; 
 }
 
 /* Styles for the active link */
@@ -52,22 +52,21 @@
 
 
 /* NavBar container */
-
 .navbar-container {
   position: fixed;
   bottom: 12%;
-  width: 94%; /* Reduce the width to make more room for the text */
+  width: 94%;
   max-width: 483px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #042427; /* Background color */
-  padding: 4px 0; /* Vertical padding */
-  border-radius: 25px; /* Rounded corners */
-  height: 52px; /* Height of the navbar */
+  background-color: #042427; 
+  padding: 4px 0; 
+  border-radius: 25px; 
+  height: 52px; 
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 2px solid rgba(128, 128, 128, 0.5); /* Medium opaque grey border */
+  border: 2px solid rgba(128, 128, 128, 0.5); 
 }
 
 
@@ -78,12 +77,12 @@
 
 /* Style for the "Neuro Lingua" text */
 .navbar-text {
-  color: white; /* Text color */
-  font-family: 'GFS Didot', serif; /* Font family */
+  color: white; 
+  font-family: 'GFS Didot', serif; 
   z-index: 1; /* Ensures it appears above other elements */
-  font-size: 0.88rem; /* Reduced font size */
-  padding: 0 10px; /* Reduced padding */
-  margin: 0 10px; /* Adjusted margin */
+  font-size: 0.88rem; 
+  padding: 0 10px; 
+  margin: 0 10px; 
 }
 
 
@@ -96,24 +95,17 @@
   align-items: center;
   text-decoration: none;
   color: white;
-  margin-left: 23px; /* Adjust the margin to control spacing */
-  margin-right: 23px; /* Adjust the margin to control spacing */
+  margin-left: 21px; 
+  margin-right: 15px; 
   margin-top: 8px;
 }
 
 
-/* Adjust for medium screens */
-@media (max-width: 768px) {
-  .nav-item {
-      margin-left: 36px;
-      margin-right: 38px;
-  }
-}
 
 /* Adjust for small screens */
-@media (max-width: 480px) {
+@media (max-width: 999px) {
   .nav-item {
-      margin-left: 18px;
+      margin-left: 19px;
       margin-right: 5px;
       margin-top: 10px;
   }
@@ -122,20 +114,20 @@
 
 /* Bubble */
 .bubble {
-  width: 24px; /* Adjust the width to make the bubble smaller */
-  height: 24px; /* Adjust the height to make the bubble smaller */
+  width: 24px; 
+  height: 24px; 
   background-color: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%; /* Ensure the bubble is circular */
-  margin-bottom: 4px; /* Space between bubble and icon */
+  border-radius: 50%; 
+  margin-bottom: 4px; 
 }
 
 /* Icon */
 .menu-icon {
-  font-size: 16px; /* Adjust icon size as needed */
-  color: white; /* Icon color */
+  font-size: 16px; 
+  color: white; 
 }
 
 /* Menu name */
@@ -144,23 +136,23 @@
   color: white;
   font-size: 12px;
   text-align: center;
-  margin-top: 5px; /* Increase this value to move the menu name further down */
+  margin-top: 5px; 
 }
 
 
 /* Left bubble */
 .bubble-left {
   position: absolute;
-  left: 10%; /* Adjust this percentage to move the bubble horizontally */
-  top: 60%; /* Adjust this percentage to move the bubble down */
+  left: 10%; 
+  top: 60%; 
   transform: translateY(-50%);
 }
 
 /* Right bubble */
 .bubble-right {
   position: absolute;
-  right: 10%; /* Adjust this percentage to move the bubble horizontally */
-  top: 60%; /* Adjust this percentage to move the bubble down */
+  right: 10%; 
+  top: 60%; 
   transform: translateY(-50%);
 }
 

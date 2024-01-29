@@ -69,21 +69,18 @@ const Profile = ( {handleLogout} ) => {
         <div className="mb-4 w-full">
           <strong>Updated At:</strong> {new Date(profile.updatedAt).toLocaleDateString()}
         </div>
+        
         <button 
-  className="mt-4 px-4 py-2 border rounded text-[#17393A] border-[#17393A] hover:bg-[#EFF4F3] hover:text-[#3F514E] shadow-lg focus:outline-none focus:ring focus:border-blue-300 w-full mr-2"
-  onClick={handleSubmit}
->
-  Save Changes
-</button>
+            className="mt-4 px-4 py-2 border rounded bg-[#E2E6E7] text-[#366664] hover:bg-[#17393A]  hover:text-white border-[#8ECAE6] focus:outline-none focus:ring focus:border-blue-300 w-full mr-2 font-semibold"
+            onClick={handleSubmit} >
+              Save Changes
+        </button>
 
-<button 
-  className="mt-4 px-4 py-2 border rounded bg-white/95 text-custom-red border-custom-red hover:bg-[#4e170d] hover:text-white shadow-lg focus:outline-none focus:ring focus:border-blue-300 w-full ml-[-1]"
-  onClick={handleLogout}
->
-  Log out
-</button>
-
-
+        <button 
+           className="mt-4 px-4 py-2 border rounded bg-[#E2E6E7] text-[#A4161A] border-[#4e170d] hover:bg-[#800E13] hover:text-white focus:outline-none focus:ring focus:border-[#4e170d] w-full ml-[-1] font-semibold opacity-91"
+           onClick={handleLogout} >
+            Log out
+        </button>
 
       </div>
     </div>
