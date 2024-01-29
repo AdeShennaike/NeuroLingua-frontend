@@ -38,12 +38,12 @@ const App = () => {
   useEffect(() => {
     if (user) {
       // If the user is already logged in, navigate to the quiz page
-      return
+      navigate('/quiz')
     } else {
       // If not logged in, navigate to the login page
       navigate('/login');
     }
-  }, [user, navigate]); // Add user as a dependency to trigger the effect when user state changes
+  }, [user]); // Add user as a dependency to trigger the effect when user state changes
 
   return (
     <>
