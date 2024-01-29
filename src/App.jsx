@@ -39,7 +39,7 @@ const App = () => {
   useEffect(() => {
     if (user) {
       // If the user is already logged in, navigate to the quiz page
-      navigate('/quiz');
+      navigate('/quiz')
     } else {
       // If not logged in, navigate to the login page
       navigate('/login');
