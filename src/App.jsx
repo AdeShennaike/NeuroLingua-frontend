@@ -43,7 +43,7 @@ const App = () => {
       // If not logged in, navigate to the login page
       navigate('/login');
     }
-  }, [user]); // Add user as a dependency to trigger the effect when user state changes
+  }, [user, navigate]); // Add user as a dependency to trigger the effect when user state changes
 
   return (
     <>
@@ -53,7 +53,7 @@ const App = () => {
       </video>
       <img
   src={overlayImage} // Replace overlayImage with the path to your overlay image
-  alt="Overlay Image"
+  alt="Overlay"
   className="overlay-image z-[-1] fixed w-[212px] h-[220px]" // Adjust the width and height as desired
 />
 
