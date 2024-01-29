@@ -35,6 +35,7 @@ const App = () => {
   
 
   // useEffect hook to navigate to the sign-up page upon component mount
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (user) {
       // If the user is already logged in, navigate to the quiz page
@@ -43,6 +44,7 @@ const App = () => {
       // If not logged in, navigate to the login page
       navigate('/login');
     }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]); // Add user as a dependency to trigger the effect when user state changes
 
   return (
