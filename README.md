@@ -1,7 +1,8 @@
-# NUERO LINGUA
+# NEURO LINGUA
 
 
 [Backend](https://github.com/AdeShennaike/NeuroLingua-backend)
+[Frontend](https://neurolingua6.netlify.app/login)
 
 ### Your personalized language learning companion.
 
@@ -86,3 +87,5 @@ https://github.com/AdeShennaike/NeuroLingua-frontendConnect
 - Mongoose
 - Dotenv
 - ChatGPT
+- Tailwind
+- YouTube
