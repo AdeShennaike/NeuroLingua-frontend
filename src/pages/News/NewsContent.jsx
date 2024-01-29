@@ -3,9 +3,7 @@ import React from "react"
 
 const NewsContent = (props) => {
 
-  const { content, displayClass, handleSelect } = props
-
-  const content_example = "{zh:巨大的|en:Gigantic} {zh:海浪|en:waves} swamped parts of a key {zh:美国军事设施|en:US military facility} in the middle of the {zh:太平洋|en:Pacific Ocean} last weekend, causing damage that will take months to repair, according to a {zh:美国军方|en:US Army} report."
+  const { content, displayClass } = props
 
   console.log(content)
   if(content == null) { return <p>...</p>}

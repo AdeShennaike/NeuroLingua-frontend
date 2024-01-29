@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 import * as profileService from '../../services/profileService';
-import { Link } from 'react-router-dom';
-
 
 const Profile = ( {handleLogout} ) => {
   const [profile, setProfile] = useState(null);
